@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:id="@+id/svLayout"
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="10dp">
+
+                <EditText
+                    android:id="@+id/edtEnterMoney"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#03A9F4"
+                    android:ems="5"
+                    android:inputType="number"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textSize="32dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/constraintContent"
+                    app:layout_constraintHorizontal_bias="0.4"
+                    app:layout_constraintStart_toStartOf="@id/constraintContent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="VND"
+                    android:textColor="#03A9F4"
+                    android:textSize="32dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/constraintContent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/edtEnterMoney"
+                    app:layout_constraintTop_toTopOf="@id/constraintContent" />
+
+                <TextView
+                    android:id="@+id/txtAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Tài khoản"
+                    android:textColor="#03A9F4"
+                    android:textSize="22dp"
+                    app:layout_constraintEnd_toEndOf="@id/constraintContent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="@id/constraintContent"
+                    app:layout_constraintTop_toBottomOf="@id/edtEnterMoney" />
+
+                <TextView
+                    android:id="@+id/txtSelectAcount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Chính"
+                    android:textColor="#ff1493"
+                    android:textSize="18dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtAccount" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:text="Danh mục"
+                    android:textColor="#03A9F4"
+                    android:textSize="22dp"
+                    app:layout_constraintEnd_toEndOf="@id/constraintContent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="@id/constraintContent"
+                    app:layout_constraintTop_toBottomOf="@id/txtSelectAcount" />
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+                        <FrameLayout
+                            android:id="@+id/animBtnCategory1"
+                            android:layout_width="118dp"
+                            android:layout_height="145dp"
+                            android:background="@color/none">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_gravity="center">
+                                <ImageButton
+                                    android:id="@+id/btnCategory1"
+                                    android:layout_width="95dp"
+                                    android:layout_height="95dp"
+                                    android:background="@drawable/custom_button_category"
+                                    android:backgroundTint="#99fa09ad"
+                                    app:srcCompat="@drawable/party"
+                                    app:tint="@color/white" />
+                                <TextView
+                                    android:id="@+id/textView3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:gravity="center"
+                                    android:text="Tiệc tùng"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </FrameLayout>
+                        <FrameLayout
+                            android:id="@+id/animBtnCategory2"
+                            android:layout_width="118dp"
+                            android:layout_height="145dp"
+                            android:background="@color/none">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_gravity="center">
+
+                                <ImageButton
+                                    android:id="@+id/btnCategory2"
+                                    android:layout_width="95dp"
+                                    android:layout_height="95dp"
+                                    android:background="@drawable/custom_button_category"
+                                    android:backgroundTint="#9900ffff"
+                                    android:src="@drawable/car"
+                                    app:tint="#808080" />
+
+                                <TextView
+                                    android:id="@+id/textView4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:gravity="center"
+                                    android:text="Di chuyển"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </FrameLayout>
+                        <FrameLayout
+                            android:id="@+id/animBtnCategory3"
+                            android:layout_width="118dp"
+                            android:layout_height="145dp"
+                            android:background="@color/none">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_gravity="center">
+                                <ImageButton
+                                    android:id="@+id/btnCategory3"
+                                    android:layout_width="95dp"
+                                    android:layout_height="95dp"
+                                    android:background="@drawable/custom_button_category"
+                                    android:backgroundTint="#99ffff00"
+                                    android:src="@drawable/education"
+                                    app:tint="#32cd32" />
+                                <TextView
+                                    android:id="@+id/textView6"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:gravity="center"
+                                    android:text="Học tập"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </FrameLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+                        <FrameLayout
+                            android:id="@+id/animBtnCategory4"
+                            android:layout_width="118dp"
+                            android:layout_height="145dp"
+                            android:background="@color/none">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_gravity="center">
+                                <ImageButton
+                                    android:id="@+id/btnCategory4"
+                                    android:layout_width="95dp"
+                                    android:layout_height="95dp"
+                                    android:background="@drawable/custom_button_category"
+                                    android:backgroundTint="#99ff0000"
+                                    android:src="@drawable/gift"
+                                    app:tint="@color/white" />
+                                <TextView
+                                    android:id="@+id/textView7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:gravity="center"
+                                    android:text="Quà cáp"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </FrameLayout>
+                        <FrameLayout
+                            android:id="@+id/animBtnCategory5"
+                            android:layout_width="118dp"
+                            android:layout_height="145dp"
+                            android:background="@color/none">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_gravity="center">
+                                <ImageButton
+                                    android:id="@+id/btnCategory5"
+                                    android:layout_width="95dp"
+                                    android:layout_height="95dp"
+                                    android:background="@drawable/custom_button_category"
+                                    android:backgroundTint="#9900ff00"
+                                    android:src="@drawable/people"
+                                    app:tint="#808080" />
+                                <TextView
+                                    android:id="@+id/textView8"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:gravity="center"
+                                    android:text="Gia đình"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </FrameLayout>
+                        <FrameLayout
+                            android:id="@+id/animBtnCategory6"
+                            android:layout_width="118dp"
+                            android:layout_height="145dp"
+                            android:background="@color/none">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_gravity="center">
+
+                                <ImageButton
+                                    android:id="@+id/btnCategory6"
+                                    android:layout_width="95dp"
+                                    android:layout_height="95dp"
+                                    android:background="@drawable/custom_button_category"
+                                    android:backgroundTint="#99ff00ff"
+                                    android:src="@drawable/add"
+                                    app:tint="#ff4500" />
+
+                                <TextView
+                                    android:id="@+id/textView9"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:gravity="center"
+                                    android:text="Thêm mới"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </FrameLayout>
+
+
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+                    <Button
+                        android:id="@+id/btnToday"
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@color/none"
+                        android:gravity="center"
+                        android:text=""
+                        android:textAllCaps="false"
+                        android:textColor="#03A9F4"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnYesterday"
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/none"
+                        android:gravity="center"
+                        android:text=""
+                        android:textAllCaps="false"
+                        android:textColor="#03A9F4"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnCustomDay"
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@color/none"
+                        android:gravity="center"
+                        android:text="Tùy chọn"
+                        android:textAllCaps="false"
+                        android:textColor="#03A9F4"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/frameLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="13dp"
+                        android:text="Ghi chú"
+                        android:textColor="#03A9F4"
+                        android:textSize="22dp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="100">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="#03A9F4"
+                            android:inputType="text" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </FrameLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/frameLayout">
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="13dp"
+                        android:text=" Hình ảnh ghi chú"
+                        android:textColor="#03A9F4"
+                        android:textSize="22dp" />
+
+                    <LinearLayout
+                        android:id="@+id/layoutHorImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="65dp">
+
+                        <ImageButton
+                            android:id="@+id/imageButton6"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:adjustViewBounds="true"
+                            android:padding="20dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/doraemon" />
+
+                        <ImageButton
+                            android:id="@+id/imageButton7"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:adjustViewBounds="true"
+                            android:padding="20dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/doraemon" />
+
+                        <ImageButton
+                            android:id="@+id/imageButton8"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:adjustViewBounds="true"
+                            android:padding="20dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/doraemon" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/svLayout"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="5dp">
+        <Button
+            android:id="@+id/button"
+            android:layout_width="200dp"
+            android:layout_height="55dp"
+            android:text="Thêm"
+            android:background="#99ff1493"
+            android:textColor="#99ffffff"
+            android:gravity="center" />
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

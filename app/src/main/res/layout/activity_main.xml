@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintHeader"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/custom_actionbar"
+        android:orientation="horizontal"
+        android:fitsSystemWindows="true">
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="52dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/custom_button_back"
+            android:src="@drawable/icon_back"
+            app:layout_constraintEnd_toEndOf="@id/constraintHeader"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@id/constraintHeader"
+            app:layout_constraintTop_toTopOf="@id/constraintHeader"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="Thêm giao dịch"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            app:flow_horizontalBias="0.5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/constraintHeader"
+            app:layout_constraintHorizontal_bias="0.448"
+            app:layout_constraintStart_toStartOf="@id/constraintHeader"
+            app:layout_constraintTop_toTopOf="@id/constraintHeader"
+            app:layout_constraintVertical_bias="0.066" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:background="@color/none"
+            android:onClick="animationBtnChi"
+            android:text="KHOẢN CHI"
+            android:textColor="@color/white"
+            android:textSize="17dp"
+            app:layout_constraintBottom_toBottomOf="@id/constraintHeader"
+            app:layout_constraintEnd_toEndOf="@id/constraintHeader"
+            app:layout_constraintHorizontal_bias="0.232"
+            app:layout_constraintStart_toStartOf="@id/constraintHeader"
+            app:layout_constraintTop_toTopOf="@id/constraintHeader"
+            app:layout_constraintVertical_bias="0.986" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/none"
+            android:onClick="animationBtnThu"
+            android:text="KHOẢN THU"
+            android:textColor="@color/white"
+            android:textSize="17dp"
+            app:layout_constraintBottom_toBottomOf="@id/constraintHeader"
+            app:layout_constraintEnd_toEndOf="@id/constraintHeader"
+            app:layout_constraintHorizontal_bias="0.78"
+            app:layout_constraintStart_toStartOf="@id/constraintHeader"
+            app:layout_constraintTop_toTopOf="@id/constraintHeader"
+            app:layout_constraintVertical_bias="0.986" />
+
+        <TextView
+            android:id="@+id/underlineButton"
+            android:layout_width="125dp"
+            android:layout_height="50dp"
+            android:background="@drawable/fill_button"
+            app:layout_constraintBottom_toBottomOf="@id/constraintHeader"
+            app:layout_constraintEnd_toEndOf="@id/constraintHeader"
+            app:layout_constraintHorizontal_bias="0.19"
+            app:layout_constraintStart_toStartOf="@id/constraintHeader"
+            app:layout_constraintTop_toTopOf="@id/constraintHeader"
+            app:layout_constraintVertical_bias="0.986" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout
+        android:id="@+id/frameContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/constraintHeader">
+        <fragment
+            android:id="@+id/fragmentChi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:name="com.example.doanmonhoc.FragmentChi"
+            tools:layout="@layout/fragment_chi"
+            app:layout_constraintTop_toBottomOf="@id/constraintHeader"/>
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
