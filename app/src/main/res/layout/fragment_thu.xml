@@ -61,7 +61,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="Tài khoảnnnn"
+                    android:text="Tài khoản"
                     android:textColor="#03A9F4"
                     android:textSize="22dp"
                     app:layout_constraintEnd_toEndOf="@id/constraintContent"
@@ -127,7 +127,7 @@
                                     android:layout_height="95dp"
                                     android:background="@drawable/custom_button_category"
                                     android:backgroundTint="#99fa09ad"
-                                    app:srcCompat="@drawable/party"
+                                    app:srcCompat="@drawable/money"
                                     app:tint="@color/white" />
                                 <TextView
                                     android:id="@+id/textView3"
@@ -135,7 +135,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="10dp"
                                     android:gravity="center"
-                                    android:text="Tiệc tùng"
+                                    android:text="Tiền lương"
                                     android:textSize="18dp"
                                     android:textStyle="bold" />
                             </LinearLayout>
@@ -157,8 +157,8 @@
                                     android:layout_height="95dp"
                                     android:background="@drawable/custom_button_category"
                                     android:backgroundTint="#9900ffff"
-                                    android:src="@drawable/car"
-                                    app:tint="#808080" />
+                                    android:src="@drawable/family"
+                                    app:tint="#FF9800" />
 
                                 <TextView
                                     android:id="@+id/textView4"
@@ -166,7 +166,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="10dp"
                                     android:gravity="center"
-                                    android:text="Di chuyển"
+                                    android:text="Gia đình"
                                     android:textSize="18dp"
                                     android:textStyle="bold" />
                             </LinearLayout>
@@ -187,7 +187,7 @@
                                     android:layout_height="95dp"
                                     android:background="@drawable/custom_button_category"
                                     android:backgroundTint="#99ffff00"
-                                    android:src="@drawable/education"
+                                    android:src="@drawable/company"
                                     app:tint="#32cd32" />
                                 <TextView
                                     android:id="@+id/textView6"
@@ -195,7 +195,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="10dp"
                                     android:gravity="center"
-                                    android:text="Học tập"
+                                    android:text="Công ty"
                                     android:textSize="18dp"
                                     android:textStyle="bold" />
                             </LinearLayout>
@@ -224,15 +224,15 @@
                                     android:layout_height="95dp"
                                     android:background="@drawable/custom_button_category"
                                     android:backgroundTint="#99ff0000"
-                                    android:src="@drawable/gift"
-                                    app:tint="@color/white" />
+                                    android:src="@drawable/bitcoin"
+                                    app:tint="#FFEB3B" />
                                 <TextView
                                     android:id="@+id/textView7"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="10dp"
                                     android:gravity="center"
-                                    android:text="Quà cáp"
+                                    android:text="Đầu tư"
                                     android:textSize="18dp"
                                     android:textStyle="bold" />
                             </LinearLayout>
@@ -253,15 +253,15 @@
                                     android:layout_height="95dp"
                                     android:background="@drawable/custom_button_category"
                                     android:backgroundTint="#9900ff00"
-                                    android:src="@drawable/people"
-                                    app:tint="#808080" />
+                                    android:src="@drawable/internet"
+                                    app:tint="#03A9F4" />
                                 <TextView
                                     android:id="@+id/textView8"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="10dp"
                                     android:gravity="center"
-                                    android:text="Gia đình"
+                                    android:text="Bán Online"
                                     android:textSize="18dp"
                                     android:textStyle="bold" />
                             </LinearLayout>
