@@ -26,6 +26,7 @@
         <activity
             android:name=".MainActivity2"
             android:exported="true" />
+        1
 <!--        CỦA BÍCH PHƯỢNG-->
 <!--        <activity-->
 <!--            android:name=".MainActivity2"-->
