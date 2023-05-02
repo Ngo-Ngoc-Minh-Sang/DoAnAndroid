@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OptionFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:id="@+id/edt_daystart"
+        android:hint="YYYY/MM/DD"
+        android:textSize="18dp"
+        android:layout_marginLeft="60dp"
+        >
+    </EditText>
+
+    <ImageView
+        android:id="@+id/img_daystart"
+        android:layout_width="62dp"
+        android:layout_height="41dp"
+        android:src="@drawable/baseline_calendar_month_24">
+
+    </ImageView>
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:id="@+id/edt_dayend"
+        android:hint="YYYY/MM/DD"
+        android:textSize="18dp"
+        android:layout_marginLeft="250dp"
+
+        >
+    </EditText>
+
+    <ImageView
+        android:id="@+id/img_dayend"
+        android:layout_width="62dp"
+        android:layout_height="41dp"
+        android:layout_marginLeft="190dp"
+        android:src="@drawable/baseline_calendar_month_24">
+
+    </ImageView>
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
+        >
+
+    </ListView>
+
+
+</FrameLayout>
