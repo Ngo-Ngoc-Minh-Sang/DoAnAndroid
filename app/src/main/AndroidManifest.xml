@@ -12,10 +12,33 @@
         android:theme="@style/Theme.DoAnMonHoc"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".PTTaiChinhActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PTChiTieuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ThuNhapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivityPhong"
             android:exported="true" />
         <activity
             android:name=".MainActivity2"
+            android:exported="true" />
+<!--        CỦA BÍCH PHƯỢNG-->
+<!--        <activity-->
+<!--            android:name=".MainActivity2"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+<!--CỦA SANG-->
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,6 +46,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<!--CỦA PHONG-->
+<!--        <activity-->
+<!--            android:name=".MainActivityPhong"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
     </application>
 
 </manifest>
