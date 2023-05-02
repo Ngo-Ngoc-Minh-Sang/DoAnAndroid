@@ -11,8 +11,6 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
-
-
     public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
     }
@@ -20,48 +18,25 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        switch (position)
-        {
+        switch (position) {
             case 0:
-                return new NowFragment();
+                return new FragmentTongQuan();
             case 1:
-                return new MonthFragment();
+                return new FragmentTaiKhoan();
             case 2:
-                return new YearFragment();
+                return new FragmentAdd();
             case 3:
-                return new OptionFragment();
+                return new FragmentBaoCao();
+            case 4:
+                return new FragmentKhac();
             default:
-                return new NowFragment();
+                return new FragmentTongQuan();
         }
 
     }
-
     @Override
     public int getCount() {
-        return 4;
-    }
 
-    @Nullable
-    @Override
-    public CharSequence getPageTitle(int position) {
-        String title="";
-        switch (position)
-        {
-            case 0:
-                title="HIỆN TẠI";
-                break;
-            case 1:
-                title="THÁNG";
-                break;
-            case 2:
-                title="NĂM";
-                break;
-            case 3:
-                title="TÙY CHỌN";
-                break;
-
-
-        }
-        return title;
+        return 5;
     }
 }
