@@ -12,7 +12,19 @@
         android:theme="@style/Theme.DoAnMonHoc"
         tools:targetApi="31">
         <activity
+            android:name=".PTTaiChinhActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PTChiTieuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ThuNhapActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivityPhong"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

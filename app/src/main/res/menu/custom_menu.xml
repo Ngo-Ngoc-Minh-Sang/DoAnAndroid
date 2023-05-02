@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_TongQuan"
+        android:title="Tổng Quan"
+        android:icon="@drawable/baseline_home_24"/>
+    <item
+        android:id="@+id/menu_TaiKhoan"
+        android:title="Tài Khoản"
+        android:icon="@drawable/baseline_account_circle_24"/>
+    <item
+        android:id="@+id/menu_Add"
+        android:title=""
+        android:icon="@drawable/baseline_add_circle_24"/>
+    <item
+        android:id="@+id/menu_BaoCao"
+        android:title="Báo Cáo"
+        android:icon="@drawable/baseline_bar_chart_24"/>
+    <item
+        android:id="@+id/menu_Khac"
+        android:title="Khác"
+        android:icon="@drawable/baseline_apps_24"/>
+</menu>
