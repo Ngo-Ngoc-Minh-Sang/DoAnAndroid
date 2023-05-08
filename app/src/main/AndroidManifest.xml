@@ -68,8 +68,14 @@
 <!--            </intent-filter>-->
 <!--        </activity>-->
 <!--        CỦA ĐẠT-->
+
+        <!-- Mạnh !-->
         <activity
-            android:name=".MainActivityDat"
+            android:name=".SignUpActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
