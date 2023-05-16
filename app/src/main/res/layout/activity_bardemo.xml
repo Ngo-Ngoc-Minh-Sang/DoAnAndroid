@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".bardemo">
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/barchart"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="333dp"
+        android:paddingTop="30dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="411dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textthang1"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Tháng 1"
+                android:textColor="#070606"
+                android:textSize="20dp"
+                android:textStyle="bold"></TextView>
+            <TextView
+                android:id="@+id/txtthu"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="Thu (number)"
+                android:textColor="#1AED23"
+                android:textSize="20sp"></TextView>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/txtchi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="Chi (number)"
+            android:textColor="#F10E0E"
+            android:textSize="20sp"></TextView>
+
+        <TextView
+            android:id="@+id/txttotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="Tổng (number)"
+            android:textColor="#0B0A0A"
+            android:textSize="20sp"></TextView>
+        <LinearLayout
+            android:layout_width="411dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textthang1"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Tháng 2"
+                android:textColor="#121111"
+                android:textSize="20dp"
+                android:textStyle="bold"></TextView>
+            <TextView
+                android:id="@+id/txtthu"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="Thu (number)"
+                android:textColor="#1AED23"
+                android:textSize="20sp"></TextView>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/txtchi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="Chi (number)"
+            android:textColor="#F10E0E"
+            android:textSize="20sp"></TextView>
+
+        <TextView
+            android:id="@+id/txttotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="Tổng (number)"
+            android:textColor="#131313"
+            android:textSize="20sp"></TextView>
+    </LinearLayout>
+</LinearLayout>
