@@ -1,12 +1,8 @@
-package com.example.doanmonhoc;
+package com.example.doanmonhoc.sang;
 
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +10,16 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+
+import com.example.doanmonhoc.R;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class FragmentChi extends Fragment {
+public class Sang_FragmentThu extends Fragment {
+
     FrameLayout animBtnCategory1, animBtnCategory2, animBtnCategory3, animBtnCategory4, animBtnCategory5, animBtnCategory6;
     Button btnToday, btnYesterday, btnCustomDay;
     ImageButton btnCategory1, btnCategory2, btnCategory3, btnCategory4, btnCategory5, btnCategory6;
@@ -25,7 +27,7 @@ public class FragmentChi extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_chi, container, false);
+        View view = inflater.inflate(R.layout.fragment_thu, container, false);
         addControls(view);
         imageButtons = initializeButtons(view,6);
         checkButtonCLicked(view);
@@ -40,9 +42,9 @@ public class FragmentChi extends Fragment {
         animBtnCategory4 = (FrameLayout) view.findViewById(R.id.animBtnCategory4);
         animBtnCategory5 = (FrameLayout) view.findViewById(R.id.animBtnCategory5);
         animBtnCategory6 = (FrameLayout) view.findViewById(R.id.animBtnCategory6);
-        btnToday = (Button) view.findViewById(R.id.btnToday);
-        btnYesterday = (Button) view.findViewById(R.id.btnYesterday);
-        btnCustomDay = (Button) view.findViewById(R.id.btnCustomDay);
+        btnToday = (Button) view.findViewById(R.id.btnToday2);
+        btnYesterday = (Button) view.findViewById(R.id.btnYesterday2);
+        btnCustomDay = (Button) view.findViewById(R.id.btnCustomDay2);
         btnCategory1 = (ImageButton) view.findViewById(R.id.btnCategory1);
         btnCategory2 = (ImageButton) view.findViewById(R.id.btnCategory2);
         btnCategory3 = (ImageButton) view.findViewById(R.id.btnCategory3);
@@ -56,22 +58,21 @@ public class FragmentChi extends Fragment {
             @Override
             public void onClick(View view) {
                 setBackgroundNoneForButtonDate();
-                btnToday.setBackground(ContextCompat.getDrawable(viewParent.findViewById(R.id.btnToday).getContext(), R.drawable.custom_background_buttondate));
+                btnToday.setBackground(ContextCompat.getDrawable(viewParent.findViewById(R.id.btnToday2).getContext(), R.drawable.custom_background_buttondate));
             }
         });
         btnYesterday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setBackgroundNoneForButtonDate();
-                btnYesterday.setBackground(ContextCompat.getDrawable(viewParent.findViewById(R.id.btnToday).getContext(), R.drawable.custom_background_buttondate));
+                btnYesterday.setBackground(ContextCompat.getDrawable(viewParent.findViewById(R.id.btnToday2).getContext(), R.drawable.custom_background_buttondate));
             }
         });
         btnCustomDay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setBackgroundNoneForButtonDate();
-                btnCustomDay.setBackground(ContextCompat.getDrawable(viewParent.findViewById(R.id.btnToday).getContext(), R.drawable.custom_background_buttondate));
-
+                btnCustomDay.setBackground(ContextCompat.getDrawable(viewParent.findViewById(R.id.btnToday2).getContext(), R.drawable.custom_background_buttondate));
             }
         });
     }

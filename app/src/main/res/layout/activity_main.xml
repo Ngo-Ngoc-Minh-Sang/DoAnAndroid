@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".sang.Sang_MainActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintHeader"
         android:layout_width="match_parent"
@@ -95,7 +95,7 @@
             android:id="@+id/fragmentChi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:name="com.example.doanmonhoc.FragmentChi"
+            android:name="com.example.doanmonhoc.sang.Sang_FragmentChi"
             tools:layout="@layout/fragment_chi"
             app:layout_constraintTop_toBottomOf="@id/constraintHeader"/>
     </FrameLayout>

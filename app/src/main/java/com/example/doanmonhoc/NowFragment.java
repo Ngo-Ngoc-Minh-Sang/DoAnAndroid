@@ -10,9 +10,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.TextView;
+
+import com.example.doanmonhoc.sang.Sang_MainActivity;
 
 import java.util.Calendar;
 
@@ -32,7 +33,7 @@ public class NowFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    MainActivity mainActivity;
+    Sang_MainActivity mainActivity;
     TextView textView;
     View view;
 

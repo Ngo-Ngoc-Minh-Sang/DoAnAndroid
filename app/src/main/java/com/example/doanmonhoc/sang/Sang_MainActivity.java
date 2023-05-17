@@ -1,26 +1,18 @@
-package com.example.doanmonhoc;
+package com.example.doanmonhoc.sang;
+
+import android.os.Bundle;
+import android.view.View;
+import android.view.animation.TranslateAnimation;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.res.Resources;
+import com.example.doanmonhoc.R;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.view.View;
-import android.view.animation.TranslateAnimation;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.ImageButton;
-import android.widget.TextView;
-
-public class MainActivity extends AppCompatActivity {
+public class Sang_MainActivity extends AppCompatActivity {
     TextView underlineButton;
     boolean checkPos = true;
     @Override
@@ -44,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment fragment = fragmentManager.findFragmentByTag("FragmentThu");
         fragmentManager.beginTransaction().remove(fragment).commit();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.frameContent, new FragmentChi(), "FragmentChi");
+        fragmentTransaction.add(R.id.frameContent, new Sang_FragmentChi(), "FragmentChi");
         fragmentTransaction.commit();
     }
     public void animationBtnThu(View view){
@@ -63,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             fragment = fragmentManager.findFragmentByTag("FragmentChi");
         fragmentManager.beginTransaction().remove(fragment).commit();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.frameContent, new FragmentThu(), "FragmentThu");
+        fragmentTransaction.add(R.id.frameContent, new Sang_FragmentThu(), "FragmentThu");
         fragmentTransaction.commit();
     }
 }

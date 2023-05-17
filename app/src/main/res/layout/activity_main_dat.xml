@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:paddingTop="30dp"
-    tools:context=".MainActivity">
+    tools:context=".Sang_MainActivity">
 
 
     <Button

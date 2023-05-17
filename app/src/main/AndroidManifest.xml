@@ -21,7 +21,7 @@
             android:name=".bardemo"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".PTTaiChinhActivity"
@@ -36,8 +36,11 @@
             android:name=".MainActivityPhong"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".MainActivity2"
             android:exported="true" />
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
         <!-- CỦA BÍCH PHƯỢNG -->
         <!-- <activity -->
         <!-- android:name=".MainActivity2" -->
@@ -48,15 +51,14 @@
         <!-- </intent-filter> -->
         <!-- </activity> -->
         <!-- CỦA SANG -->
-<!--        <activity-->
-<!--            android:name=".MainActivity"-->
-<!--            android:exported="false">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
+        <activity
+            android:name=".sang.Sang_MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 <!--        CỦA PHONG-->
 <!--        <activity-->
 <!--            android:name=".MainActivityPhong"-->
@@ -70,19 +72,15 @@
 <!--        CỦA ĐẠT-->
 
         <!-- Mạnh !-->
-        <activity
-            android:name=".SignUpActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".LoginActivity"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-        <activity
-            android:name=".LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
     </application>
 
 </manifest>
