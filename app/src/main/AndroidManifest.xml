@@ -71,11 +71,11 @@
 
         <!-- Mạnh !-->
         <activity
-            android:name=".SignUpActivity"
+            android:name=".Manh_SignUpActivity"
             android:exported="false" />
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".Manh_LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
