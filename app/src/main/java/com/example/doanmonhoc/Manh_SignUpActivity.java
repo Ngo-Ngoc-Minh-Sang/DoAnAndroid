@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
 
-public class SignUpActivity extends AppCompatActivity {
+public class Manh_SignUpActivity extends AppCompatActivity {
 
     TextView txtSignIn;
     RadioButton genderradioButton;
@@ -29,7 +29,7 @@ public class SignUpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.manh_activity_sign_up);
 
         radioGroup=(RadioGroup)findViewById(R.id.radioGroup);
 
@@ -44,7 +44,7 @@ public class SignUpActivity extends AppCompatActivity {
         txtSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SignUpActivity.this,LoginActivity.class);
+                Intent intent = new Intent(Manh_SignUpActivity.this, Manh_LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -55,7 +55,7 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Tạo đối tượng
-                AlertDialog.Builder b = new AlertDialog.Builder(SignUpActivity.this);
+                AlertDialog.Builder b = new AlertDialog.Builder(Manh_SignUpActivity.this);
                 //Thiết lập tiêu đề
                 b.setTitle("Thông báo");
                 b.setIcon(R.drawable.baseline_check_circle_outline_24);
@@ -64,7 +64,7 @@ public class SignUpActivity extends AppCompatActivity {
                 // Nút Ok
                 b.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        Intent intent = new Intent(SignUpActivity.this,LoginActivity.class);
+                        Intent intent = new Intent(Manh_SignUpActivity.this, Manh_LoginActivity.class);
                         startActivity(intent);
                         finish();
                     }
@@ -80,10 +80,10 @@ public class SignUpActivity extends AppCompatActivity {
         int selectedId = radioGroup.getCheckedRadioButtonId();
         genderradioButton = (RadioButton) findViewById(selectedId);
         if(selectedId==-1){
-            Toast.makeText(SignUpActivity.this,"Nothing selected", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Manh_SignUpActivity.this,"Nothing selected", Toast.LENGTH_SHORT).show();
         }
         else{
-            Toast.makeText(SignUpActivity.this,genderradioButton.getText(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(Manh_SignUpActivity.this,genderradioButton.getText(), Toast.LENGTH_SHORT).show();
         }
     }
 
