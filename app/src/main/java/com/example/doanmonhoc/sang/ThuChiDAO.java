@@ -42,7 +42,7 @@ public class ThuChiDAO {
     public List<String> getALlGiaoDichToString(){
         List<String> ls = new ArrayList<>();
         // Tạo con trỏ để đọc dữ liệu
-        Cursor c = db.query("GiaoDich", null, null, null, null, null, null);
+        Cursor c = db.query("GiaoDich",null, null, null, null, null, null);
         c.moveToFirst(); // Đặt con trỏ ở bản ghi đầu tiên trong bảng
         while(!c.isAfterLast()) //Nếu nó không phải dòng cuối cùng thì cứ tiếp tục đọc
         {
@@ -66,4 +66,58 @@ public class ThuChiDAO {
         c.close();
         return ls;
     }
+
+    public List<String> getGiaoDichToString(){
+        List<String> ls = new ArrayList<>();
+        // Tạo con trỏ để đọc dữ liệu
+        String query = "select MaGiaoDich, PhanLoaiThuChi, TienGiaoDich, NgayGiaoDich, GhiChu, MaDanhMuc from GiaoDich";
+        Cursor c = db.rawQuery(query,null);
+        c.moveToFirst(); // Đặt con trỏ ở bản ghi đầu tiên trong bảng
+        while(!c.isAfterLast()) //Nếu nó không phải dòng cuối cùng thì cứ tiếp tục đọc
+        {
+            ThuChiModel thuChi = new ThuChiModel();
+            thuChi.setMaGiaoDich(c.getInt(0));
+            thuChi.setPhanLoaiThuChi(c.getInt(1));
+            thuChi.setTienGiaoDich(c.getInt(2));
+            thuChi.setNgayGiaoDich(c.getString(3));
+            thuChi.setGhiChu(c.getString(4));
+            thuChi.setMaDanhMuc(c.getInt(5));
+
+
+            String strData = thuChi.getMaGiaoDich() + " - " + thuChi.getPhanLoaiThuChi() + " - " + thuChi.getTienGiaoDich()
+                    + " - " + thuChi.getNgayGiaoDich() + " - " + thuChi.getGhiChu() + " - " + thuChi.getMaDanhMuc();
+            ls.add(strData);
+            c.moveToNext();
+        }
+        c.close();
+        return ls;
+    }
+
+    public List<String> getSelectDay(int year, int month, int day){
+        List<String> ls = new ArrayList<>();
+        // Tạo con trỏ để đọc dữ liệu
+        String dateText = year + "-" + (month + 1) + "-" + day;
+        String query = "select * from GiaoDich where NgayGiaoDich = '" + dateText + "' ";
+        Cursor c = db.rawQuery(query,null);
+        c.moveToFirst(); // Đặt con trỏ ở bản ghi đầu tiên trong bảng
+        while(!c.isAfterLast()) //Nếu nó không phải dòng cuối cùng thì cứ tiếp tục đọc
+        {
+            ThuChiModel thuChi = new ThuChiModel();
+            thuChi.setMaGiaoDich(c.getInt(0));
+            thuChi.setPhanLoaiThuChi(c.getInt(1));
+            thuChi.setTienGiaoDich(c.getInt(2));
+            thuChi.setNgayGiaoDich(c.getString(3));
+            thuChi.setGhiChu(c.getString(4));
+            thuChi.setMaDanhMuc(c.getInt(5));
+
+
+            String strData = thuChi.getMaGiaoDich() + " - " + thuChi.getPhanLoaiThuChi() + " - " + thuChi.getTienGiaoDich()
+                    + " - " + thuChi.getNgayGiaoDich() + " - " + thuChi.getGhiChu() + " - " + thuChi.getMaDanhMuc();
+            ls.add(strData);
+            c.moveToNext();
+        }
+        c.close();
+        return ls;
+    }
+
 }

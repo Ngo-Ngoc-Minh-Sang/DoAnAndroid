@@ -6,49 +6,67 @@
     tools:context=".OptionFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <EditText
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:id="@+id/edt_daystart"
-        android:hint="YYYY/MM/DD"
-        android:textSize="18dp"
-        android:layout_marginLeft="60dp"
-        >
-    </EditText>
 
-    <ImageView
-        android:id="@+id/img_daystart"
-        android:layout_width="62dp"
-        android:layout_height="41dp"
-        android:src="@drawable/baseline_calendar_month_24">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    </ImageView>
-    <EditText
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:id="@+id/edt_dayend"
-        android:hint="YYYY/MM/DD"
-        android:textSize="18dp"
-        android:layout_marginLeft="250dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        >
-    </EditText>
+            <ImageView
+                android:id="@+id/img_daystart"
+                android:layout_width="50dp"
+                android:layout_height="41dp"
+                android:src="@drawable/baseline_calendar_month_24">
 
-    <ImageView
-        android:id="@+id/img_dayend"
-        android:layout_width="62dp"
-        android:layout_height="41dp"
-        android:layout_marginLeft="190dp"
-        android:src="@drawable/baseline_calendar_month_24">
+            </ImageView>
 
-    </ImageView>
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginTop="40dp"
-        >
+            <EditText
+                android:id="@+id/edt_daystart"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:hint="YYYY/MM/DD"
+                android:textSize="18dp"></EditText>
 
-    </ListView>
+            <ImageView
+                android:id="@+id/img_dayend"
+                android:layout_width="50dp"
+                android:layout_height="41dp"
+                android:src="@drawable/baseline_calendar_month_24">
+
+            </ImageView>
+
+            <EditText
+                android:id="@+id/edt_dayend"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:hint="YYYY/MM/DD"
+                android:textSize="18dp"
+
+                ></EditText>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnShow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SHOW" />
+
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="40dp" >
+
+        </ListView>
+
+
+    </LinearLayout>
 
 
 </FrameLayout>
