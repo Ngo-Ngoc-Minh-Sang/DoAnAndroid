@@ -1,18 +1,16 @@
-package com.example.doanmonhoc.sang;
+package com.example.doanmonhoc.model;
 
 public class ThuChiModel {
-    int maGiaoDich, phanLoaiThuChi, tienGiaoDich, maNguoiDung, maDanhMuc, maViTien;
+    int maGiaoDich, phanLoaiThuChi, tienGiaoDich, maNguoiDung, maDanhMuc;
     String ngayGiaoDich, ghiChu;
 
     public ThuChiModel(){}
 
-    public ThuChiModel(int maGiaoDich, int phanLoaiThuChi, int tienGiaoDich, int maNguoiDung, int maDanhMuc, int maViTien, String ngayGiaoDich, String ghiChu) {
+    public ThuChiModel(int maGiaoDich, int phanLoaiThuChi, int tienGiaoDich, int maNguoiDung, int maDanhMuc, String ngayGiaoDich, String ghiChu) {
         this.maGiaoDich = maGiaoDich;
         this.phanLoaiThuChi = phanLoaiThuChi;
         this.tienGiaoDich = tienGiaoDich;
-        this.maNguoiDung = maNguoiDung;
         this.maDanhMuc = maDanhMuc;
-        this.maViTien = maViTien;
         this.ngayGiaoDich = ngayGiaoDich;
         this.ghiChu = ghiChu;
     }
@@ -35,10 +33,6 @@ public class ThuChiModel {
 
     public int getMaDanhMuc() {
         return maDanhMuc;
-    }
-
-    public int getMaViTien() {
-        return maViTien;
     }
 
     public String getNgayGiaoDich() {
@@ -67,10 +61,6 @@ public class ThuChiModel {
 
     public void setMaDanhMuc(int maDanhMuc) {
         this.maDanhMuc = maDanhMuc;
-    }
-
-    public void setMaViTien(int maViTien) {
-        this.maViTien = maViTien;
     }
 
     public void setNgayGiaoDich(String ngayGiaoDich) {

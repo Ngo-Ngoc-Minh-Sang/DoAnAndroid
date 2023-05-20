@@ -5,45 +5,37 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class SQLiteHelper extends SQLiteOpenHelper {
-    // Lệnh tạo bảng Ví Tiền
-    public static final String CREATE_TABLE_ViTien = "CREATE TABLE ViTien(" +
-            "MaViTien INT PRIMARY KEY," +
-            "SoDu INT," +
-            "MaNguoiDung INT," +
-            "FOREIGN KEY (MaNguoiDung) REFERENCES NguoiDung(MaNguoiDung))";
     // Lệnh tạo bảng Người Dùng
     public static final String CREATE_TABLE_NguoiDung = "CREATE TABLE NguoiDung(" +
-            "MaNguoiDung INT PRIMARY KEY," +
+            "MaNguoiDung INTEGER PRIMARY KEY AUTOINCREMENT," +
             "HoTen TEXT," +
             "SDT TEXT," +
             "Avatar TEXT," +
-            "DiaChi TEXT," +
             "NamSinh INT," +
-            "GioiTinh INT," +
+            "SoDu INTEGER," +
+            "GioiTinh TEXT," +
             "Email TEXT," +
             "MatKhau TEXT)";
     // Lệnh tạo bảng Danh Mục
     public static final String CREATE_TABLE_DanhMuc = "CREATE TABLE DanhMuc(" +
-            "MaDanhMuc INT PRIMARY KEY," +
+            "MaDanhMuc INTEGER PRIMARY KEY AUTOINCREMENT," +
             "TenDanhMuc TEXT," +
             "Icon TEXT)";
     // Lệnh tạo bảng Giao Dịch
     public static final String CREATE_TABLE_GiaoDich = "CREATE TABLE GiaoDich(" +
-            "MaGiaoDich INT PRIMARY KEY," +
+            "MaGiaoDich INTEGER PRIMARY KEY AUTOINCREMENT," +
             "PhanLoaiThuChi INT," +
             "TienGiaoDich INTEGER," +
             "NgayGiaoDich DATE," +
             "GhiChu TEXT," +
-            "MaNguoiDung INT," +
-            "MaDanhMuc INT," +
-            "MaViTien INT," +
+            "MaNguoiDung INTEGER," +
+            "MaDanhMuc INTEGER," +
             "FOREIGN KEY (MaNguoiDung) REFERENCES NguoiDung(MaNguoiDung)," +
-            "FOREIGN KEY (MaDanhMuc) REFERENCES DanhMuc(MaDanhMuc)," +
-            "FOREIGN KEY (MaViTien) REFERENCES ViTien (MaViTien))";
+            "FOREIGN KEY (MaDanhMuc) REFERENCES DanhMuc(MaDanhMuc))";
     public static final String CREATE_TABLE_HinhAnhGhiChu = "CREATE TABLE HinhAnhGhiChu(" +
-            "MaAnh INT PRIMARY KEY," +
+            "MaAnh INTEGER PRIMARY KEY AUTOINCREMENT," +
             "IMG TEXT," +
-            "MaGiaoDich INT," +
+            "MaGiaoDich INTEGER," +
             "FOREIGN KEY (MaGiaoDich) REFERENCES GiaoDich (MaGiaoDich))";
     // Hàm tạo CSDL
     public SQLiteHelper(Context context){
@@ -52,19 +44,17 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     // Tạo bảng
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-//        sqLiteDatabase.execSQL(CREATE_TABLE_ViTien);
-//        sqLiteDatabase.execSQL(CREATE_TABLE_NguoiDung);
-//        sqLiteDatabase.execSQL(CREATE_TABLE_DanhMuc);
+        sqLiteDatabase.execSQL(CREATE_TABLE_NguoiDung);
+        sqLiteDatabase.execSQL(CREATE_TABLE_DanhMuc);
         sqLiteDatabase.execSQL(CREATE_TABLE_GiaoDich);
-//        sqLiteDatabase.execSQL(CREATE_TABLE_HinhAnhGhiChu);
+        sqLiteDatabase.execSQL(CREATE_TABLE_HinhAnhGhiChu);
     }
     // Xóa bảng dữ liêu cũ tạo bảng dữ liệu mới
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-//        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS ViTien");
-//        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS NguoiDung");
-//        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS DanhMuc");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS NguoiDung");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS DanhMuc");
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS GiaoDich");
-//        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS HinhAnhGhiChu");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS HinhAnhGhiChu");
     }
 }
