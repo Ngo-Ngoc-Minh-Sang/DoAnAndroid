@@ -1,10 +1,14 @@
 package com.example.doanmonhoc.sang;
 
 import android.content.Context;
+import android.content.res.AssetManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -14,11 +18,14 @@ import com.example.doanmonhoc.DAO.DanhMucDAO;
 import com.example.doanmonhoc.R;
 import com.example.doanmonhoc.model.DanhMucModel;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 public class ActivityTest_Insert_ShowData extends AppCompatActivity {
 
     Button buttonInsert, buttonShow, buttonDelete, buttonUpdate;
+    ImageView imgV;
 //    ThuChiDAO thuChiDAO;
 //    NguoiDungDAO ngDungDAO;
 //    HinhAnhGhiChuDAO anhNoteDAO;
@@ -32,6 +39,11 @@ public class ActivityTest_Insert_ShowData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_insert_show_data);
 
+
+        imgV = (ImageView) findViewById(R.id.imageView2);
+        String dataImg = "icon.png";
+        Bitmap bitmap = bitmapImageBySrcImage(dataImg);
+        imgV.setImageBitmap(bitmap);
         buttonInsert = (Button) findViewById(R.id.button4);
         buttonShow = (Button) findViewById(R.id.button5);
         buttonDelete = (Button) findViewById(R.id.button6);
@@ -71,5 +83,17 @@ public class ActivityTest_Insert_ShowData extends AppCompatActivity {
                 lv.setAdapter(adapter);
             }
         });
+    }
+    public Bitmap bitmapImageBySrcImage(String srcImage){
+        try {
+            Context context = getApplicationContext();
+            AssetManager assetManager = context.getAssets();
+            InputStream inputStream = assetManager.open(srcImage);
+            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+            return  bitmap;
+        } catch (IOException e) {
+            Toast.makeText(ActivityTest_Insert_ShowData.this, "Lỗi", Toast.LENGTH_LONG).show();
+        }
+        return null;
     }
 }
