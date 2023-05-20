@@ -1,4 +1,4 @@
-package com.example.doanmonhoc.sang;
+package com.example.doanmonhoc.DAO;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.doanmonhoc.SQLiteHelper;
+import com.example.doanmonhoc.model.ThuChiModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,7 @@ public class ThuChiDAO {
     }
 
     // Thêm dữ liệu
-    public int insertThu(ThuChiModel thuChi){
+    public int insertThuChi(ThuChiModel thuChi){
         ContentValues values = new ContentValues(); // Tạo đối tượng chứa dữ liệu
         // Đưa dữ liệu vào đối tượng chứa
         values.put("MaGiaoDich", thuChi.getMaGiaoDich());
@@ -32,13 +33,13 @@ public class ThuChiDAO {
         values.put("GhiChu", thuChi.getGhiChu());
         values.put("MaNguoiDung", thuChi.getMaNguoiDung());
         values.put("MaDanhMuc", thuChi.getMaDanhMuc());
-        values.put("MaViTien", thuChi.getMaViTien());
         long kq = db.insert("GiaoDich", null,values);
         if(kq < 0)
             return -1; // Insert Fail
         return 1; // Insert Success
     }
 
+    // Lấy hết tất cả dữ liệu show ra dạng chuỗi
     public List<String> getALlGiaoDichToString(){
         List<String> ls = new ArrayList<>();
         // Tạo con trỏ để đọc dữ liệu
@@ -54,16 +55,40 @@ public class ThuChiDAO {
             thuChi.setGhiChu(c.getString(4));
             thuChi.setMaNguoiDung(c.getInt(5));
             thuChi.setMaDanhMuc(c.getInt(6));
-            thuChi.setMaViTien(c.getInt(7));
 
 
             String strData = thuChi.getMaGiaoDich() + " - " + thuChi.getPhanLoaiThuChi() + " - " + thuChi.getTienGiaoDich()
                     + " - " + thuChi.getNgayGiaoDich() + " - " + thuChi.getGhiChu() + " - " + thuChi.getMaNguoiDung()
-                    + " - " + + thuChi.getMaDanhMuc() + " - " + thuChi.getMaViTien();
+                    + " - " + + thuChi.getMaDanhMuc();
             ls.add(strData);
             c.moveToNext();
         }
         c.close();
         return ls;
+    }
+
+    // Xóa dữ liệu
+    public int DeleteThuChi(String maGiaoDich){
+        int kq = db.delete("GiaoDich", "MaGiaoDich = ?", new String[]{maGiaoDich});
+        if(kq <= 0)
+            return -1; // Fail
+        return 1; // Success
+    }
+
+    // Cập nhật
+    public int updateThuChi(ThuChiModel thuChi){
+        ContentValues values = new ContentValues(); // Tạo đối tượng chứa dữ liệu
+        // Đưa dữ liệu vào đối tượng chứa
+        values.put("MaGiaoDich", thuChi.getMaGiaoDich());
+        values.put("PhanLoaiThuChi", thuChi.getPhanLoaiThuChi());
+        values.put("TienGiaoDich", thuChi.getTienGiaoDich());
+        values.put("NgayGiaoDich", thuChi.getNgayGiaoDich());
+        values.put("GhiChu", thuChi.getGhiChu());
+        values.put("MaNguoiDung", thuChi.getMaNguoiDung());
+        values.put("MaDanhMuc", thuChi.getMaDanhMuc());
+        long kq = db.update("GiaoDich",values,"MaGiaoDich = ?",new String[]{String.valueOf(thuChi.getMaGiaoDich())});
+        if(kq < 0)
+            return -1; // Fail
+        return 1; // Success
     }
 }

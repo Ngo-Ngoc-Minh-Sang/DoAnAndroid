@@ -10,14 +10,19 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.doanmonhoc.DAO.DanhMucDAO;
 import com.example.doanmonhoc.R;
+import com.example.doanmonhoc.model.DanhMucModel;
 
 import java.util.List;
 
 public class ActivityTest_Insert_ShowData extends AppCompatActivity {
 
-    Button buttonInsert, buttonShow;
-    ThuChiDAO thuChiDAO;
+    Button buttonInsert, buttonShow, buttonDelete, buttonUpdate;
+//    ThuChiDAO thuChiDAO;
+//    NguoiDungDAO ngDungDAO;
+//    HinhAnhGhiChuDAO anhNoteDAO;
+    DanhMucDAO danhMucDAO;
     Context context;
     List<String> list;
     ListView lv;
@@ -29,14 +34,26 @@ public class ActivityTest_Insert_ShowData extends AppCompatActivity {
 
         buttonInsert = (Button) findViewById(R.id.button4);
         buttonShow = (Button) findViewById(R.id.button5);
+        buttonDelete = (Button) findViewById(R.id.button6);
+        buttonUpdate = (Button) findViewById(R.id.button7);
         lv = (ListView) findViewById(R.id.lvData);
         context = this;
-        thuChiDAO = new ThuChiDAO(context);
+//        thuChiDAO = new ThuChiDAO(context);
+//        ngDungDAO = new NguoiDungDAO(context);
+//        anhNoteDAO = new HinhAnhGhiChuDAO(context);
+        danhMucDAO = new DanhMucDAO(context);
         buttonInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ThuChiModel thuChi = new ThuChiModel(1, 2, 2000, 3, 4, 5, "2023-05-19", "Mua sữa chua" );
-                int kq = thuChiDAO.insertThu(thuChi);
+//                ThuChiModel thuChi = new ThuChiModel(1, 2, 2000, 3, 4, "2023-05-19", "Mua sữa chua" );
+//                NguoiDungModel ngDung = new NguoiDungModel(1, 2002, 200000, "Ngô Ngọc Minh Sang", "0946885098", "avatar.png", "ngos810@gmail.com", "sang123", "Nữ");
+//                HinhAnhGhiChuModel anhNote = new HinhAnhGhiChuModel(1, 1, "anhNote.png");
+                DanhMucModel danhMuc = new DanhMucModel(1, "Ăn uống", "icon.png");
+
+//                int kq = thuChiDAO.insertThuChi(thuChi);
+//                int kq = ngDungDAO.insertNguoiDung(ngDung);
+//                int kq = anhNoteDAO.insertHinhAnhNote(anhNote);
+                int kq = danhMucDAO.insertDanhMuc(danhMuc);
                 if(kq == 1)
                     Toast.makeText(ActivityTest_Insert_ShowData.this, "Thành công", Toast.LENGTH_LONG).show();
                 else
@@ -46,7 +63,10 @@ public class ActivityTest_Insert_ShowData extends AppCompatActivity {
         buttonShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                list = thuChiDAO.getALlGiaoDichToString();
+//                list = thuChiDAO.getALlGiaoDichToString();
+//                list = ngDungDAO.getALlNguoiDungToString();
+//                list = anhNoteDAO.getALlHinhAnhNoteToString();
+                list = danhMucDAO.getALlDanhMucToString();
                 adapter = new ArrayAdapter(context, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, list);
                 lv.setAdapter(adapter);
             }
