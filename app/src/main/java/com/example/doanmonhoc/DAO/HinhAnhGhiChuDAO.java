@@ -51,4 +51,24 @@ public class HinhAnhGhiChuDAO {
         c.close();
         return ls;
     }
+    // Xóa dữ liệu
+    public int deleteHinhAnhNote(String maAnh){
+        int kq = db.delete("HinhAnhGhiChu", "MaAnh = ?", new String[]{maAnh});
+        if(kq <= 0)
+            return -1; // Fail
+        return 1; // Success
+    }
+
+    // Cập nhật
+    public int updateHinhAnhNote(HinhAnhGhiChuModel anhNote){
+        ContentValues values = new ContentValues(); // Tạo đối tượng chứa dữ liệu
+        // Đưa dữ liệu vào đối tượng chứa
+        values.put("MaAnh", anhNote.getMaAnh());
+        values.put("IMG", anhNote.getImg());
+        values.put("MaGiaoDich", anhNote.getMaGiaoDich());
+        long kq = db.update("HinhAnhGhiChu",values,"MaAnh = ?",new String[]{String.valueOf(anhNote.getMaAnh())});
+        if(kq < 0)
+            return -1; // Fail
+        return 1; // Success
+    }
 }

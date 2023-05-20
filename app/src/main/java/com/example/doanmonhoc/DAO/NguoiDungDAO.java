@@ -65,4 +65,30 @@ public class NguoiDungDAO {
         c.close();
         return ls;
     }
+    // Xóa dữ liệu
+    public int deleteNguoiDung(String maNguoiDung){
+        int kq = db.delete("NguoiDung", "MaNguoiDung = ?", new String[]{maNguoiDung});
+        if(kq <= 0)
+            return -1; // Fail
+        return 1; // Success
+    }
+
+    // Cập nhật
+    public int updateNguoiDung(NguoiDungModel ngDung){
+        ContentValues values = new ContentValues(); // Tạo đối tượng chứa dữ liệu
+        // Đưa dữ liệu vào đối tượng chứa
+        values.put("MaNguoiDung", ngDung.getMaNguoiDung());
+        values.put("HoTen", ngDung.getHoTen());
+        values.put("SDT", ngDung.getSdt());
+        values.put("Avatar", ngDung.getAvatar());
+        values.put("NamSinh", ngDung.getNamSinh());
+        values.put("SoDu", ngDung.getSoDu());
+        values.put("GioiTinh", ngDung.getGioiTinh());
+        values.put("Email", ngDung.getEmail());
+        values.put("MatKhau", ngDung.getMatKhau());
+        long kq = db.update("NguoiDung",values,"MaNguoiDung = ?",new String[]{String.valueOf(ngDung.getMaNguoiDung())});
+        if(kq < 0)
+            return -1; // Fail
+        return 1; // Success
+    }
 }

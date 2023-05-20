@@ -68,7 +68,7 @@ public class ThuChiDAO {
     }
 
     // Xóa dữ liệu
-    public int DeleteThuChi(String maGiaoDich){
+    public int deleteThuChi(String maGiaoDich){
         int kq = db.delete("GiaoDich", "MaGiaoDich = ?", new String[]{maGiaoDich});
         if(kq <= 0)
             return -1; // Fail

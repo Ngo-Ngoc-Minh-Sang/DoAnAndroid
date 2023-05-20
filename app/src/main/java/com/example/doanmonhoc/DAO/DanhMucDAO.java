@@ -51,4 +51,25 @@ public class DanhMucDAO {
         c.close();
         return ls;
     }
+
+    // Xóa dữ liệu
+    public int deleteDanhMuc(String maDanhMuc){
+        int kq = db.delete("DanhMuc", "MaDanhMuc = ?", new String[]{maDanhMuc});
+        if(kq <= 0)
+            return -1; // Fail
+        return 1; // Success
+    }
+
+    // Cập nhật
+    public int updateDanhMuc(DanhMucModel danhMuc){
+        ContentValues values = new ContentValues(); // Tạo đối tượng chứa dữ liệu
+        // Đưa dữ liệu vào đối tượng chứa
+        values.put("MaDanhMuc", danhMuc.getMaDanhMuc());
+        values.put("TenDanhMuc", danhMuc.getTenDanhMuc());
+        values.put("Icon", danhMuc.getIcon());
+        long kq = db.update("DanhMuc",values,"MaDanhMuc = ?",new String[]{String.valueOf(danhMuc.getMaDanhMuc())});
+        if(kq < 0)
+            return -1; // Fail
+        return 1; // Success
+    }
 }
