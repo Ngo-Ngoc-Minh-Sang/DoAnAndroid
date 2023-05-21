@@ -10,8 +10,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.doanmonhoc.sang.Phuong_BaoCao_Thang_Fragment;
-import com.example.doanmonhoc.sang.Phuong_Tk_TuyChon_Fragment;
+//import com.example.doanmonhoc.sang.Phuong_BaoCao_Thang_Fragment;
+//import com.example.doanmonhoc.sang.Phuong_Tk_TuyChon_Fragment;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {

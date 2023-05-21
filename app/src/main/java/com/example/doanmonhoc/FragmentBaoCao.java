@@ -26,8 +26,8 @@ public class FragmentBaoCao extends Fragment {
         View view = inflater.inflate(R.layout.fragment_bao_cao, container, false);
         tabLayout=view.findViewById(R.id.tab_baocao);
         viewPager=view.findViewById(R.id.view_pager_baocao);
-        ViewPagerAdapterBaoCao adapterBaoCao=new ViewPagerAdapterBaoCao(getChildFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        viewPager.setAdapter(adapterBaoCao);
+        //ViewPagerAdapterBaoCao adapterBaoCao=new ViewPagerAdapterBaoCao(getChildFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        //viewPager.setAdapter(adapterBaoCao);
         tabLayout.setupWithViewPager(viewPager);
         return view;
     }
