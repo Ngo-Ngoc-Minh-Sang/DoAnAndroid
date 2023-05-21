@@ -14,14 +14,6 @@
 
 
         <activity
-<<<<<<< HEAD
-            android:name=".sang.Phong_LichSuActivity"
-=======
-            android:name=".sang.Sang_MainActivity"
-
->>>>>>> 5a1a8bc906ada3fa4d799a8e97e5f15f8b576252
-            android:exported="false" />
-        <activity
             android:name=".sang.Phong_LichSuActivity"
             android:exported="false" />
         <activity
@@ -57,12 +49,9 @@
         <!-- </intent-filter> -->
         <!-- </activity> -->
         <!-- CỦA SANG -->
+
         <activity
-<<<<<<< HEAD
             android:name=".MainActivityPhong"
-=======
-            android:name=".sang.ThemDanhMuc"
->>>>>>> 5a1a8bc906ada3fa4d799a8e97e5f15f8b576252
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -70,6 +59,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

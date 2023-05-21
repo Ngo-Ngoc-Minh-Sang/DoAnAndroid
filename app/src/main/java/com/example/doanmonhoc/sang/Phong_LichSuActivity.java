@@ -15,13 +15,12 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-<<<<<<< HEAD
-=======
+
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
->>>>>>> 5a1a8bc906ada3fa4d799a8e97e5f15f8b576252
+
 import com.example.doanmonhoc.DAO.ThuChiDAO;
 import com.example.doanmonhoc.R;
 import com.example.doanmonhoc.SQLiteHelper;
