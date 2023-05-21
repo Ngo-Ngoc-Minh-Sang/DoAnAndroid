@@ -1,12 +1,7 @@
 package com.example.doanmonhoc.sang;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -18,10 +13,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.doanmonhoc.DAO.ThuChiDAO;
 import com.example.doanmonhoc.R;
 import com.example.doanmonhoc.SQLiteHelper;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
