@@ -38,7 +38,19 @@ public class NguoiDungDAO {
             return -1; // Insert Fail
         return 1; // Insert Success
     }
-
+    public int checkNguoiDung(String email, String password){
+        NguoiDungModel ngDung = new NguoiDungModel();
+        String s = "Select * from nguoidung where email = '" + email + "' and matkhau = '" + password + "'";
+        Cursor c = db.rawQuery(s,null);
+        //query("NguoiDung", null, "email = ?, matkhau = ?", new String[] { (email), (password)}, null, null, null);
+        int kq = c.getCount();
+        c.close();
+        if (kq == 1){
+            return 1;
+        } else {
+            return -1;
+        }
+    }
     public List<String> getALlNguoiDungToString(){
         List<String> ls = new ArrayList<>();
         // Tạo con trỏ để đọc dữ liệu

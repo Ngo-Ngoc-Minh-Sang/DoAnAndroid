@@ -3,12 +3,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentTongQuan">
+    tools:context=".FragmentTongQuan"
+    >
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <Button
+        android:id="@+id/btnLichSu"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
 
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="65dp"
+        android:background="@drawable/custom_button"
+        android:text="Lịch Sử"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btnDoiTien"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="46dp"
+        android:layout_marginRight="31dp"
+        android:background="@drawable/custom_button"
+        android:layout_gravity="center"
+        android:layout_marginBottom="450px"
+        android:text="Đổi tiền"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnLaiBank"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginBottom="950px"
+        android:background="@drawable/custom_button"
+        android:layout_gravity="bottom"
+        android:text="Tính Lãi Ngân Hàng"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 </FrameLayout>

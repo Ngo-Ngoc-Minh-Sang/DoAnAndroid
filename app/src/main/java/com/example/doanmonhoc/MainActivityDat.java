@@ -8,8 +8,10 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import com.example.doanmonhoc.sang.Phong_LichSuActivity;
+
 public class MainActivityDat extends AppCompatActivity {
-    Button btnbar,btndoitien, btntienlai;
+    Button btnbar,btndoitien, btntienlai,btnLichSu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +22,7 @@ public class MainActivityDat extends AppCompatActivity {
         btnbar=(Button)findViewById(R.id.btnbar);
         btndoitien=(Button)findViewById(R.id.btndoitien);
         btntienlai=(Button)findViewById(R.id.btntienlai);
+        btnLichSu=(Button)findViewById(R.id.btnLichSu);
 
         btnbar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,5 +44,6 @@ public class MainActivityDat extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), LaiNganHang.class));
             }
         });
+
     }
 }
