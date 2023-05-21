@@ -11,10 +11,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoAnMonHoc"
         tools:targetApi="31">
+<<<<<<< HEAD
+
+
+        <activity
+
+            android:name=".sang.Phong_LichSuActivity"
+            android:exported="false" />
+
+=======
+>>>>>>> 5638c2ee8d7752791134b1abe2de134c884de3b5
 <!--        <activity-->
 <!--            android:name=".sang.Phong_LichSuActivity"-->
 <!--            android:exported="false" />-->
 
+<<<<<<< HEAD
+=======
         <!--        <activity-->
         <!--            android:name=".sang.Phong_LichSuActivity"-->
         <!--            android:exported="false" />-->
@@ -22,6 +34,7 @@
 <!--        <activity-->
 <!--            android:name=".sang.Phong_LichSuActivity"-->
 <!--            android:exported="false" />-->
+>>>>>>> 5638c2ee8d7752791134b1abe2de134c884de3b5
         <activity
             android:name=".LaiNganHang"
             android:exported="false" />
@@ -58,9 +71,12 @@
         <!-- </intent-filter> -->
         <!-- </activity> -->
         <!-- CỦA SANG -->
-
         <activity
+<<<<<<< HEAD
+            android:name=".MainActivityPhong"
+=======
             android:name=".sang.Phong_LichSuActivity"
+>>>>>>> 5638c2ee8d7752791134b1abe2de134c884de3b5
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -68,6 +84,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
 
     </application>
 
