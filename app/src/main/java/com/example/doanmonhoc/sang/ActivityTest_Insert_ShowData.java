@@ -27,11 +27,14 @@ import java.util.List;
 public class ActivityTest_Insert_ShowData extends AppCompatActivity {
 
     Button buttonInsert, buttonShow, buttonDelete, buttonUpdate;
+<<<<<<< HEAD
+=======
 
     ThuChiDAO thuChiDAO;
 //    NguoiDungDAO ngDungDAO;
 //    HinhAnhGhiChuDAO anhNoteDAO;
     //DanhMucDAO danhMucDAO;
+>>>>>>> 326ace38c9f4eca45e4ae3c592d41a0f99a8bc2a
 
 
     ImageView imgV;
@@ -59,6 +62,16 @@ public class ActivityTest_Insert_ShowData extends AppCompatActivity {
         buttonUpdate = (Button) findViewById(R.id.button7);
         lv = (ListView) findViewById(R.id.lvData);
         context = this;
+<<<<<<< HEAD
+        thuChiDAO = new ThuChiDAO(context);
+//        ngDungDAO = new NguoiDungDAO(context);
+//        anhNoteDAO = new HinhAnhGhiChuDAO(context);
+//        danhMucDAO = new DanhMucDAO(context);
+        buttonInsert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ThuChiModel thuChi = new ThuChiModel(1, 2, 2000, 3, 4, "2023-05-19", "Mua sữa chua" );
+=======
        thuChiDAO = new ThuChiDAO(context);
 //        ngDungDAO = new NguoiDungDAO(context);
 //        anhNoteDAO = new HinhAnhGhiChuDAO(context);
@@ -69,10 +82,32 @@ public class ActivityTest_Insert_ShowData extends AppCompatActivity {
                     public void onClick(View view) {
                         ThuChiModel thuChi = new ThuChiModel(2, 1, 2000, 3, 4, "2023-05-21", "Lương" );
 
+>>>>>>> 326ace38c9f4eca45e4ae3c592d41a0f99a8bc2a
 //                NguoiDungModel ngDung = new NguoiDungModel(1, 2002, 200000, "Ngô Ngọc Minh Sang", "0946885098", "avatar.png", "ngos810@gmail.com", "sang123", "Nữ");
 //                HinhAnhGhiChuModel anhNote = new HinhAnhGhiChuModel(1, 1, "anhNote.png");
 //                DanhMucModel danhMuc = new DanhMucModel(1, "Ăn uống", "icon.png");
 
+<<<<<<< HEAD
+                int kq = thuChiDAO.insertThuChi(thuChi);
+//                int kq = ngDungDAO.insertNguoiDung(ngDung);
+//                int kq = anhNoteDAO.insertHinhAnhNote(anhNote);
+//                int kq = danhMucDAO.insertDanhMuc(danhMuc);
+                if(kq == 1)
+                    Toast.makeText(ActivityTest_Insert_ShowData.this, "Thành công", Toast.LENGTH_LONG).show();
+                else
+                    Toast.makeText(ActivityTest_Insert_ShowData.this, "Thất bại", Toast.LENGTH_LONG).show();
+            }
+        });
+        buttonShow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                list = thuChiDAO.getALlGiaoDichToString();
+//                list = ngDungDAO.getALlNguoiDungToString();
+//                list = anhNoteDAO.getALlHinhAnhNoteToString();
+//                list = danhMucDAO.getALlDanhMucToString();
+                adapter = new ArrayAdapter(context, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, list);
+                lv.setAdapter(adapter);
+=======
 
                         int kq = thuChiDAO.insertThuChi(thuChi);
 //                int kq = ngDungDAO.insertNguoiDung(ngDung);
@@ -108,6 +143,7 @@ public class ActivityTest_Insert_ShowData extends AppCompatActivity {
                         lv.setAdapter(adapter);
                     }
                 });
+>>>>>>> 326ace38c9f4eca45e4ae3c592d41a0f99a8bc2a
             }
     private Bitmap bitmapImageBySrcImage(String dataImg) {
         try {

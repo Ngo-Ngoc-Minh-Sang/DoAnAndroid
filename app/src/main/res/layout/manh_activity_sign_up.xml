@@ -15,43 +15,68 @@
         android:layout_marginEnd="22dp"
         android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp">
+        <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="32dp">-->
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:src="@drawable/logo"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+        <!--            <ImageView-->
+        <!--                android:id="@+id/imageView"-->
+        <!--                android:src="@drawable/logo"-->
+        <!--                android:layout_width="100dp"-->
+        <!--                android:layout_height="100dp"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintStart_toStartOf="parent"-->
+        <!--                app:layout_constraintTop_toTopOf="parent"-->
+        <!--                app:layout_constraintEnd_toEndOf="parent"/>-->
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Đăng ký"
-            android:textAlignment="center"
-            android:textColor="@color/cyan"
-            android:textSize="50sp" />
+        <!--        <TextView-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="24dp"-->
+        <!--            android:text="Đăng ký"-->
+        <!--            android:textAlignment="center"-->
+        <!--            android:textColor="@color/cyan"-->
+        <!--            android:textSize="50sp" />-->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="22dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/imgAvatar"
+                android:background="@drawable/border"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Ảnh đại diện"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:gravity="center"
             android:orientation="horizontal">
 
             <EditText
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
-                android:id = "@+id/edtSignUpFullName"
+                android:id = "@+id/edtHoten"
                 android:hint = "Họ tên"
                 android:focusable = "true"
                 android:textColorHighlight = "@color/black"
@@ -74,7 +99,7 @@
             <EditText
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
-                android:id = "@+id/edtSignUpEmail"
+                android:id = "@+id/edtEmail"
                 android:hint = "Email"
                 android:focusable = "true"
                 android:textColorHighlight = "@color/black"
@@ -94,23 +119,15 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="+ 84"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:inputType="phone"/>
-
             <EditText
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
-                android:id = "@+id/edtSignUpMobile"
+                android:id = "@+id/edtSdt"
                 android:hint = "Số điện thoại"
+                android:inputType="number"
                 android:focusable = "true"
                 android:textColorHighlight = "@color/black"
                 android:textColorHint = "@color/black"
-                android:layout_marginLeft="5dp"
                 android:layout_below = "@+id/imageView"
                 android:layout_alignParentLeft = "true"
                 android:layout_alignParentStart = "true"
@@ -125,7 +142,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="16dp"
-            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
@@ -144,39 +160,29 @@
                 >
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/rdNam"
                     android:layout_width="72dp"
                     android:layout_height="33dp"
                     android:textColor="@color/black"
                     android:textSize="17dp"
                     android:onClick="radioButtonhandler"
+                    android:checked="true"
                     android:text="Nam"
+                    android:buttonTint="@color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <RadioButton
-                    android:id="@+id/female"
+                    android:id="@+id/rdNu"
                     android:layout_width="61dp"
                     android:layout_height="33dp"
                     android:textColor="@color/black"
                     android:textSize="17dp"
                     android:onClick="radioButtonhandler"
                     android:text="Nữ"
+                    android:buttonTint="@color/black"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <RadioButton
-                    android:id="@+id/other"
-                    android:layout_width="177dp"
-                    android:layout_height="33dp"
-                    android:onClick="radioButtonhandler"
-                    android:textColor="@color/black"
-                    android:textSize="17dp"
-                    android:text="Khác"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.949"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </RadioGroup>
@@ -197,10 +203,11 @@
                 android:textSize="20dp" />
             <Button
                 android:id="@+id/datePickerButton"
-                android:layout_width="265dp"
+                android:layout_width="245dp"
                 android:layout_height="wrap_content"
                 android:text="01 01 2020"
                 android:textSize="17dp"
+                android:layout_marginLeft="5dp"
                 android:textColor="@color/black"
                 style="?android:spinnerStyle"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -220,9 +227,10 @@
             <EditText
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
-                android:id = "@+id/edtSignUpPassword"
+                android:id = "@+id/edtMatkhau"
                 android:hint = "Mật khẩu"
                 android:focusable = "true"
+                android:inputType="textPassword"
                 android:textColorHighlight = "@color/black"
                 android:textColorHint = "@color/black"
                 android:layout_below = "@+id/imageView"
@@ -243,8 +251,9 @@
             <EditText
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
-                android:id = "@+id/edtSignUpConfirmPassword"
+                android:id = "@+id/edtNhaplaiMK"
                 android:hint = "Nhập lại mật khẩu"
+                android:inputType="textPassword"
                 android:focusable = "true"
                 android:textColorHighlight = "@color/black"
                 android:textColorHint = "@color/black"
@@ -262,9 +271,10 @@
             android:layout_marginTop="16dp"
             android:orientation="horizontal">
             <CheckBox
-                android:id="@+id/chksimpleCheckBox"
+                android:id="@+id/cBox"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/black"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -318,7 +328,12 @@
 
 
         </LinearLayout>
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtHide"
+            android:text="Hello world!"
+            android:visibility="invisible"/>
 
 
     </LinearLayout>
