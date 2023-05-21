@@ -147,7 +147,7 @@ public class Phuong_BaoCao_Thang_Fragment extends Fragment {
             double totalIncome = 0;
             double totalExpense = 0;
             for (ThuChiModel t : transactions) {
-                if (t.getPhanLoaiThuChi()==0) {
+                if (t.getPhanLoaiThuChi()==1) {
                     totalIncome += t.getTienGiaoDich();
                 } else {
                     totalExpense += t.getTienGiaoDich();
