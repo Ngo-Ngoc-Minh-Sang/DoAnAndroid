@@ -12,9 +12,6 @@
         android:theme="@style/Theme.DoAnMonHoc"
         tools:targetApi="31">
         <activity
-            android:name=".Phong_LichSuActivity"
-            android:exported="false" />
-        <activity
             android:name=".sang.Sang_MainActivity"
             android:exported="false" />
         <activity
