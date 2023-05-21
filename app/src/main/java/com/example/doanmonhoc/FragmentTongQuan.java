@@ -14,7 +14,7 @@ import com.example.doanmonhoc.sang.Phong_LichSuActivity;
 
 public class FragmentTongQuan extends Fragment {
 
-    Button btnLichSu;
+    Button btnLichSu,btnDoiTien,btnLaiBank;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -23,13 +23,30 @@ public class FragmentTongQuan extends Fragment {
         View view = inflater.inflate(R.layout.fragment_tong_quan, container, false);
 
         btnLichSu = view.findViewById(R.id.btnLichSu);
+        btnDoiTien = view.findViewById(R.id.btnDoiTien);
+        btnLaiBank = view.findViewById(R.id.btnLaiBank);
         btnLichSu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(view.getContext().getApplicationContext(), Phong_LichSuActivity.class));
             }
         });
+
+        btnDoiTien.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(view.getContext().getApplicationContext(), DoiTien.class));
+            }
+        });
+
+        btnLaiBank.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(view.getContext().getApplicationContext(),LaiNganHang.class));
+            }
+        });
         return view;
+
     }
 
 }
