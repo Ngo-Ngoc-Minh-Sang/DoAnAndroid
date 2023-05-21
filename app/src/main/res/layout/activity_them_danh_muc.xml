@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".sang.ThemDanhMuc">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tên danh mục: "
+                android:textSize="25dp" />
+
+            <EditText
+                android:id="@+id/edtTenDanhMuc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Nhập tên danh mục"
+                android:textSize="20dp"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="135dp"
+            android:layout_height="55dp"
+            android:layout_weight="1"
+            android:text="Thêm"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:backgroundTint="#1e90ff"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/danhMuc1"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/custom_button_category"
+            android:backgroundTint="@color/xam"
+            app:srcCompat="@drawable/kham_benh"
+            app:tint="@color/white" />
+
+        <ImageButton
+            android:id="@+id/danhMuc2"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/custom_button_category"
+            android:backgroundTint="@color/xam"
+            app:srcCompat="@drawable/medicine"
+            app:tint="@color/white" />
+
+        <ImageButton
+            android:id="@+id/danhMuc3"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:background="@drawable/custom_button_category"
+            android:backgroundTint="@color/xam"
+            app:srcCompat="@drawable/choi_game"
+            app:tint="@color/white" />
+
+        <ImageButton
+            android:id="@+id/danhMuc4"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:background="@drawable/custom_button_category"
+            android:backgroundTint="@color/xam"
+            app:srcCompat="@drawable/heo_dat"
+            app:tint="@color/white" />
+
+        <ImageButton
+            android:id="@+id/danhMuc5"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:background="@drawable/custom_button_category"
+            android:backgroundTint="@color/xam"
+            app:srcCompat="@drawable/luot_van"
+            app:tint="@color/white" />
+
+        <ImageButton
+            android:id="@+id/danhMuc6"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:background="@drawable/custom_button_category"
+            android:backgroundTint="@color/xam"
+            app:srcCompat="@drawable/thu_cung"
+            app:tint="@color/white" />
+
+        <ImageButton
+            android:id="@+id/danhMuc7"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_button_category"
+            android:backgroundTint="@color/xam"
+            app:srcCompat="@drawable/tre_em"
+            app:tint="@color/white" />
+
+        <ImageButton
+            android:id="@+id/danhMuc8"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_button_category"
+            android:backgroundTint="@color/xam"
+            app:srcCompat="@drawable/vong_quay"
+            app:tint="@color/white" />
+
+        <ImageButton
+            android:id="@+id/danhMuc9"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_row="2"
+            android:layout_column="2"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_button_category"
+            android:backgroundTint="@color/xam"
+            app:srcCompat="@drawable/nghien_cuu"
+            app:tint="@color/white" />
+
+        <ImageButton
+            android:id="@+id/danhMuc10"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_button_category"
+            android:backgroundTint="@color/xam"
+            app:srcCompat="@drawable/wifi"
+            app:tint="@color/white" />
+        <ImageButton
+            android:id="@+id/danhMuc11"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_row="3"
+            android:layout_column="1"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_button_category"
+            android:backgroundTint="@color/xam"
+            app:srcCompat="@drawable/bear"
+            app:tint="@color/white" />
+        <ImageButton
+            android:id="@+id/danhMuc12"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_row="3"
+            android:layout_column="2"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_button_category"
+            android:backgroundTint="@color/xam"
+            app:srcCompat="@drawable/trang_diem"
+            app:tint="@color/white" />
+        <ImageButton
+            android:id="@+id/danhMuc13"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_row="4"
+            android:layout_column="0"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_button_category"
+            android:backgroundTint="@color/xam"
+            app:srcCompat="@drawable/golf"
+            app:tint="@color/white" />
+        <ImageButton
+            android:id="@+id/danhMuc14"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_row="4"
+            android:layout_column="1"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_button_category"
+            android:backgroundTint="@color/xam"
+            app:srcCompat="@drawable/du_lich"
+            app:tint="@color/white" />
+        <ImageButton
+            android:id="@+id/danhMuc15"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_row="4"
+            android:layout_column="2"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_button_category"
+            android:backgroundTint="@color/xam"
+            app:srcCompat="@drawable/khac"
+            app:tint="@color/white" />
+
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
