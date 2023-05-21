@@ -1,14 +1,16 @@
 package com.example.doanmonhoc;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.Button;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.Button;
-
+import com.example.doanmonhoc.sang.Sang_MainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivityPhong extends AppCompatActivity {
@@ -35,7 +37,10 @@ public class MainActivityPhong extends AppCompatActivity {
                             view_Pager.setCurrentItem(1);
                             break;
                         case R.id.menu_Add:
-                            view_Pager.setCurrentItem(2);
+//                            view_Pager.setCurrentItem(2);
+                            Intent it = new Intent();
+                            it.setClass(MainActivityPhong.this, Sang_MainActivity.class);
+                            startActivity(it);
                             break;
                         case R.id.menu_BaoCao:
                             view_Pager.setCurrentItem(3);
