@@ -15,19 +15,21 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-<<<<<<< HEAD
-=======
+
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
->>>>>>> 5a1a8bc906ada3fa4d799a8e97e5f15f8b576252
+
 import com.example.doanmonhoc.DAO.ThuChiDAO;
 import com.example.doanmonhoc.R;
 import com.example.doanmonhoc.SQLiteHelper;
 import com.example.doanmonhoc.model.DanhMucModel;
 import com.example.doanmonhoc.model.ThuChiModel;
+import com.example.doanmonhoc.phong.Phong_AdapterData;
+import com.example.doanmonhoc.phong.Phong_ItemData;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -45,6 +47,8 @@ public class Phong_LichSuActivity extends AppCompatActivity {
     ListView lv;
     List<String> list;
     ArrayAdapter adapter;
+    Phong_AdapterData adapterData;
+    ArrayList<Phong_ItemData> customArrayList = new ArrayList<Phong_ItemData>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,9 +63,11 @@ public class Phong_LichSuActivity extends AppCompatActivity {
         calendarView = (CalendarView)findViewById(R.id.calendarView);
 
         context = this;
+
         thuChiDAO = new ThuChiDAO(context);
         Calendar calendar=Calendar.getInstance();
         calendarView.setDate(System.currentTimeMillis());
+
         btnChonLich.setText(calendar.get(Calendar.DAY_OF_MONTH)+ "/" + (calendar.get(Calendar.MONTH)+ 1)+ "/" + calendar.get(Calendar.YEAR));
 
 
@@ -111,7 +117,6 @@ public class Phong_LichSuActivity extends AppCompatActivity {
             }
         });
 
-
         btnKhoanThu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -123,6 +128,8 @@ public class Phong_LichSuActivity extends AppCompatActivity {
 
             }
         });
+
+
         btnKhoanChi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -131,9 +138,37 @@ public class Phong_LichSuActivity extends AppCompatActivity {
                 lv.setAdapter(adapter);
                 //Tinh tong chi
                 getTongChi();
+//                customArrayList = getDataChi();
+//                adapterData = new Phong_AdapterData(Phong_LichSuActivity.this,R.layout.layout_custom_listview,customArrayList);
+//                lv.setAdapter(adapterData);
+
             }
         });
     }
+
+//    public ArrayList<Phong_ItemData> getDataChi(){
+//        ArrayList<Phong_ItemData> ls = new ArrayList<>();
+//        // Tạo con trỏ để đọc dữ liệu
+//        dbHelper = new SQLiteHelper(context);
+//        db = dbHelper.getReadableDatabase();
+//        String query = "select NgayGiaoDich , GhiChu,TienGiaoDich from GiaoDich  where PhanLoaiThuChi = 1";
+//        String[] columns = {"NgayGiaoDich","GhiChu","TienGiaoDich"};
+//        Cursor c = db.query("GiaoDich",columns, null, null, null, null, null);
+//        c.moveToFirst(); // Đặt con trỏ ở bản ghi đầu tiên trong bảng
+//        while(!c.isAfterLast()) //Nếu nó không phải dòng cuối cùng thì cứ tiếp tục đọc
+//        {
+//            String ngayGD = c.getString(c.getColumnIndex("NgayGiaoDich"));
+//            //String img = c.getString(c.getColumnIndex("Icon"));
+//            String ghiChu = c.getString(c.getColumnIndex("GhiChu"));
+//            int tienGD = c.getInt(c.getColumnIndex("TienGiaoDich"));
+//            Phong_ItemData itemData = new Phong_ItemData(ngayGD,ghiChu,tienGD);
+//            //String strData =thuChi.getNgayGiaoDich() + " - "+danhmuc.getIcon()+ " - " + thuChi.getGhiChu()+ " - " + thuChi.getTienGiaoDich() +" VNĐ";
+//            ls.add(itemData);
+//            c.moveToNext();
+//        }
+//        c.close();
+//        return ls;
+//    }
 
     public void getTongChi(){
         String query = " select sum(TienGiaoDich) from GiaoDich where PhanLoaiThuChi = 1";

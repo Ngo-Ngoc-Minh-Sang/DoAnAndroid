@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.doanmonhoc.SQLiteHelper;
 import com.example.doanmonhoc.model.DanhMucModel;
 import com.example.doanmonhoc.model.ThuChiModel;
+import com.example.doanmonhoc.phong.Phong_AdapterData;
+import com.example.doanmonhoc.phong.Phong_ItemData;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,7 +22,7 @@ public class ThuChiDAO {
     private SQLiteDatabase db;
     private SQLiteHelper dbHelper;
     private Context context;
-
+    ArrayList<Phong_ItemData> arrayList;
     public ThuChiDAO(Context context) {
         this.context = context;
         dbHelper = new SQLiteHelper(context); // Tạo db
@@ -76,22 +78,20 @@ public class ThuChiDAO {
         List<String> ls = new ArrayList<>();
         // Tạo con trỏ để đọc dữ liệu
         String dateText = year + "-" + (month + 1) + "-" + day;
-        String query = "select PhanLoaiThuChi, TienGiaoDich, GhiChu, Icon from GiaoDich g, DanhMuc d where d.MaDanhMuc = g.MaDanhMuc and NgayGiaoDich = '" + dateText + "' ";
+        String query = "select PhanLoaiThuChi, TienGiaoDich, GhiChu from GiaoDich where NgayGiaoDich = '" + dateText + "' ";
         Cursor c = db.rawQuery(query,null);
         c.moveToFirst(); // Đặt con trỏ ở bản ghi đầu tiên trong bảng
         while(!c.isAfterLast()) //Nếu nó không phải dòng cuối cùng thì cứ tiếp tục đọc
         {
             ThuChiModel thuChi = new ThuChiModel();
-            DanhMucModel danhmuc = new DanhMucModel();
             thuChi.setPhanLoaiThuChi(c.getInt(0));
             thuChi.setTienGiaoDich(c.getInt(1));
             thuChi.setGhiChu(c.getString(2));
-            danhmuc.setIcon(c.getString(3));
             // Ghi chú, Tiền GD,
 
 
-            String strData =  thuChi.getPhanLoaiThuChi() +" - "+danhmuc.getIcon()  + " - " + thuChi.getGhiChu()
-                    + " - " + thuChi.getTienGiaoDich()+"VNĐ";
+            String strData = "Loại Giao Dịch: " + thuChi.getPhanLoaiThuChi() + "  Ghi chú: " + thuChi.getGhiChu()
+                    + "  Tiền: " + thuChi.getTienGiaoDich()+"VNĐ";
 
             ls.add(strData);
             c.moveToNext();
@@ -103,22 +103,20 @@ public class ThuChiDAO {
     public List<String> getSelectKhoanThu(){
         List<String> ls = new ArrayList<>();
         // Tạo con trỏ để đọc dữ liệu
-        String query = "select NgayGiaoDich , GhiChu,TienGiaoDich, Icon from GiaoDich g, DanhMuc d where d.MaDanhMuc = g.MaDanhMuc and PhanLoaiThuChi = 0";
+        String query = "select NgayGiaoDich , GhiChu,TienGiaoDich from GiaoDich where PhanLoaiThuChi = 0";
         Cursor c = db.rawQuery(query,null);
         c.moveToFirst(); // Đặt con trỏ ở bản ghi đầu tiên trong bảng
         while(!c.isAfterLast()) //Nếu nó không phải dòng cuối cùng thì cứ tiếp tục đọc
         {
             ThuChiModel thuChi = new ThuChiModel();
-            DanhMucModel danhmuc = new DanhMucModel();
             thuChi.setNgayGiaoDich(c.getString(0));
             thuChi.setGhiChu(c.getString(1));
             thuChi.setTienGiaoDich(c.getInt(2));
-            danhmuc.setIcon(c.getString(3));
+
             // Ghi chú, Tiền GD,
 
 
-            String strData =thuChi.getNgayGiaoDich() + " - "+danhmuc.getIcon()
-                    + " - " + thuChi.getGhiChu()+ " - " + thuChi.getTienGiaoDich()+" VNĐ";
+            String strData = "Ngày: " +thuChi.getNgayGiaoDich() + "  Ghi chú: " + thuChi.getGhiChu()+ "  Tiền: " + thuChi.getTienGiaoDich()+" VNĐ";
 
             ls.add(strData);
             c.moveToNext();
@@ -130,22 +128,18 @@ public class ThuChiDAO {
     public List<String> getSelectKhoanChi(){
         List<String> ls = new ArrayList<>();
         // Tạo con trỏ để đọc dữ liệu
-        String query = "select NgayGiaoDich , GhiChu,TienGiaoDich, Icon from GiaoDich g, DanhMuc d where d.MaDanhMuc = g.MaDanhMuc and PhanLoaiThuChi = 1";
+        String query = "select NgayGiaoDich ,GhiChu, TienGiaoDich from GiaoDich where PhanLoaiThuChi = 1";
         Cursor c = db.rawQuery(query,null);
         c.moveToFirst(); // Đặt con trỏ ở bản ghi đầu tiên trong bảng
         while(!c.isAfterLast()) //Nếu nó không phải dòng cuối cùng thì cứ tiếp tục đọc
         {
             ThuChiModel thuChi = new ThuChiModel();
-            DanhMucModel danhmuc = new DanhMucModel();
             thuChi.setNgayGiaoDich(c.getString(0));
             thuChi.setGhiChu(c.getString(1));
             thuChi.setTienGiaoDich(c.getInt(2));
-            danhmuc.setIcon(c.getString(3));
-            // Ghi chú, Tiền GD,
 
 
-            String strData =thuChi.getNgayGiaoDich() + " - "+danhmuc.getIcon()
-                    + " - " + thuChi.getGhiChu()+ " - " + thuChi.getTienGiaoDich() +" VNĐ";
+            String strData ="Ngày: "+ thuChi.getNgayGiaoDich()+ "  Ghi chú: " + thuChi.getGhiChu()+ "  Tiền: " + thuChi.getTienGiaoDich()+" VNĐ";
 
             ls.add(strData);
             c.moveToNext();

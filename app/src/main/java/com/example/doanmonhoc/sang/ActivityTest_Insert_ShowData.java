@@ -27,21 +27,18 @@ import java.util.List;
 public class ActivityTest_Insert_ShowData extends AppCompatActivity {
 
     Button buttonInsert, buttonShow, buttonDelete, buttonUpdate;
-<<<<<<< HEAD
+
     ThuChiDAO thuChiDAO;
 //    NguoiDungDAO ngDungDAO;
 //    HinhAnhGhiChuDAO anhNoteDAO;
     //DanhMucDAO danhMucDAO;
-=======
 
-    ThuChiDAO thuChiDAO;
 
     ImageView imgV;
 //    ThuChiDAO thuChiDAO;
 //    NguoiDungDAO ngDungDAO;
 //    HinhAnhGhiChuDAO anhNoteDAO;
 //    DanhMucDAO danhMucDAO;
->>>>>>> 5a1a8bc906ada3fa4d799a8e97e5f15f8b576252
     Context context;
     List<String> list;
     ListView lv;
@@ -62,70 +59,61 @@ public class ActivityTest_Insert_ShowData extends AppCompatActivity {
         buttonUpdate = (Button) findViewById(R.id.button7);
         lv = (ListView) findViewById(R.id.lvData);
         context = this;
-<<<<<<< HEAD
        thuChiDAO = new ThuChiDAO(context);
 //        ngDungDAO = new NguoiDungDAO(context);
 //        anhNoteDAO = new HinhAnhGhiChuDAO(context);
   //      danhMucDAO = new DanhMucDAO(context);
-        buttonInsert.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               ThuChiModel thuChi = new ThuChiModel(2, 1, 3000, 3, 4, "2023-05-21", "Lương" );
-=======
-        thuChiDAO = new ThuChiDAO(context);
-//        ngDungDAO = new NguoiDungDAO(context);
-//        anhNoteDAO = new HinhAnhGhiChuDAO(context);
-//        danhMucDAO = new DanhMucDAO(context);
-        buttonInsert.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ThuChiModel thuChi = new ThuChiModel(1, 2, 2000, 3, 4, "2023-05-19", "Mua sữa chua" );
->>>>>>> 5a1a8bc906ada3fa4d799a8e97e5f15f8b576252
+
+                buttonInsert.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        ThuChiModel thuChi = new ThuChiModel(2, 1, 2000, 3, 4, "2023-05-21", "Lương" );
+
 //                NguoiDungModel ngDung = new NguoiDungModel(1, 2002, 200000, "Ngô Ngọc Minh Sang", "0946885098", "avatar.png", "ngos810@gmail.com", "sang123", "Nữ");
 //                HinhAnhGhiChuModel anhNote = new HinhAnhGhiChuModel(1, 1, "anhNote.png");
 //                DanhMucModel danhMuc = new DanhMucModel(1, "Ăn uống", "icon.png");
 
-<<<<<<< HEAD
-               int kq = thuChiDAO.insertThuChi(thuChi);
+
+                        int kq = thuChiDAO.insertThuChi(thuChi);
 //                int kq = ngDungDAO.insertNguoiDung(ngDung);
 //                int kq = anhNoteDAO.insertHinhAnhNote(anhNote);
-  //              int kq = danhMucDAO.insertDanhMuc(danhMuc);
-=======
-                int kq = thuChiDAO.insertThuChi(thuChi);
+                        //              int kq = danhMucDAO.insertDanhMuc(danhMuc);
+
+
 //                int kq = ngDungDAO.insertNguoiDung(ngDung);
 //                int kq = anhNoteDAO.insertHinhAnhNote(anhNote);
 //                int kq = danhMucDAO.insertDanhMuc(danhMuc);
->>>>>>> 5a1a8bc906ada3fa4d799a8e97e5f15f8b576252
-                if(kq == 1)
-                    Toast.makeText(ActivityTest_Insert_ShowData.this, "Thành công", Toast.LENGTH_LONG).show();
-                else
-                    Toast.makeText(ActivityTest_Insert_ShowData.this, "Thất bại", Toast.LENGTH_LONG).show();
-            }
-        });
-        buttonShow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-<<<<<<< HEAD
-               list = thuChiDAO.getALlGiaoDichToString();
+
+                        if(kq == 1)
+                            Toast.makeText(ActivityTest_Insert_ShowData.this, "Thành công", Toast.LENGTH_LONG).show();
+                        else
+                            Toast.makeText(ActivityTest_Insert_ShowData.this, "Thất bại", Toast.LENGTH_LONG).show();
+                    }
+                });
+                buttonShow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        list = thuChiDAO.getALlGiaoDichToString();
 //                list = ngDungDAO.getALlNguoiDungToString();
 //                list = anhNoteDAO.getALlHinhAnhNoteToString();
-    //            list = danhMucDAO.getALlDanhMucToString();
-=======
-                list = thuChiDAO.getALlGiaoDichToString();
+                        //            list = danhMucDAO.getALlDanhMucToString();
+
+                        list = thuChiDAO.getALlGiaoDichToString();
 //                list = ngDungDAO.getALlNguoiDungToString();
 //                list = anhNoteDAO.getALlHinhAnhNoteToString();
 //                list = danhMucDAO.getALlDanhMucToString();
->>>>>>> 5a1a8bc906ada3fa4d799a8e97e5f15f8b576252
-                adapter = new ArrayAdapter(context, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, list);
-                lv.setAdapter(adapter);
+
+                        adapter = new ArrayAdapter(context, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, list);
+                        lv.setAdapter(adapter);
+                    }
+                });
             }
-        });
-    }
-    public Bitmap bitmapImageBySrcImage(String srcImage){
+    private Bitmap bitmapImageBySrcImage(String dataImg) {
         try {
             Context context = getApplicationContext();
             AssetManager assetManager = context.getAssets();
-            InputStream inputStream = assetManager.open(srcImage);
+            InputStream inputStream = assetManager.open(dataImg);
             Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
             return  bitmap;
         } catch (IOException e) {
@@ -133,4 +121,7 @@ public class ActivityTest_Insert_ShowData extends AppCompatActivity {
         }
         return null;
     }
-}
+    }
+
+
+
