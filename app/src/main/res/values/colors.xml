@@ -12,5 +12,11 @@
     <color name="Gray">#474646</color>
     <color name="Blue">#17A4F1</color>
     <color name="cyan">#02FFEA</color>
+<<<<<<< HEAD
+    <color name="red">#FF6666</color>
+    <color name="blue">#3333FF</color>
+    <color name="blue_cardview">#CCE5FF</color>
+=======
     <color name="xam">#c0c0c0</color>
+>>>>>>> 5a1a8bc906ada3fa4d799a8e97e5f15f8b576252
 </resources>

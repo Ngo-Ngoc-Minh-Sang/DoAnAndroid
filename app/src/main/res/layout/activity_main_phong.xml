@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivityPhong">
 
+   <FrameLayout
+       android:id="@+id/frameLayout"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content">
+
+   </FrameLayout>
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"

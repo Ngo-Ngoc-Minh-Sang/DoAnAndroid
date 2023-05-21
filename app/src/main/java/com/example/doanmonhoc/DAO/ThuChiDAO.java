@@ -11,8 +11,12 @@ import com.example.doanmonhoc.model.ThuChiModel;
 import com.example.doanmonhoc.phong.Phong_AdapterData;
 import com.example.doanmonhoc.phong.Phong_ItemData;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ThuChiDAO {
     private SQLiteDatabase db;
@@ -169,4 +173,90 @@ public class ThuChiDAO {
             return -1; // Fail
         return 1; // Success
     }
+    public ArrayList<ThuChiModel> getAllGiaoDich(){
+        ArrayList<ThuChiModel> data = new ArrayList<>();
+        // Tạo con trỏ để đọc dữ liệu
+        String query = "select MaGiaoDich, PhanLoaiThuChi, TienGiaoDich, NgayGiaoDich, GhiChu, MaDanhMuc from GiaoDich";
+        Cursor c = db.rawQuery(query,null);
+        c.moveToFirst(); // Đặt con trỏ ở bản ghi đầu tiên trong bảng
+        while(!c.isAfterLast()) //Nếu nó không phải dòng cuối cùng thì cứ tiếp tục đọc
+        {
+            ThuChiModel thuChi = new ThuChiModel();
+            thuChi.setMaGiaoDich(c.getInt(0));
+            thuChi.setPhanLoaiThuChi(c.getInt(1));
+            thuChi.setTienGiaoDich(c.getInt(2));
+            thuChi.setNgayGiaoDich(c.getString(3));
+            thuChi.setGhiChu(c.getString(4));
+            thuChi.setMaDanhMuc(c.getInt(5));
+
+
+           data.add(thuChi);
+            c.moveToNext();
+        }
+        c.close();
+        return data;
+    }
+    public ArrayList<ThuChiModel> getTransactionsByMonth( int month) {
+        ArrayList<ThuChiModel> transactions = new ArrayList<>();
+
+
+        String monthStr = String.format("%02d", month);
+
+
+        String query = "SELECT * FROM GiaoDich WHERE  strftime('%m', NgayGiaoDich) = '"+monthStr+"'";
+
+        Cursor c = db.rawQuery(query, null);
+        try{
+        while (c.moveToNext()) {
+            ThuChiModel thuChi = new ThuChiModel();
+            thuChi.setMaGiaoDich(c.getInt(0));
+            thuChi.setPhanLoaiThuChi(c.getInt(1));
+            thuChi.setTienGiaoDich(c.getInt(2));
+            thuChi.setNgayGiaoDich(c.getString(3));
+            thuChi.setGhiChu(c.getString(4));
+            thuChi.setMaDanhMuc(c.getInt(5));
+
+
+            transactions.add(thuChi);
+        }
+        }catch (Exception e) {
+            // Xử lý ngoại lệ
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+
+        }
+        return transactions;
+    }
+    public ArrayList<ThuChiModel> getTransactionsByOption(String startDateString, String endDateString) {
+        ArrayList<ThuChiModel> gd = new ArrayList<>();
+
+        String query = "SELECT * FROM GiaoDich WHERE NgayGiaoDich BETWEEN '" + startDateString + "' AND '" + endDateString + "'";
+
+        Cursor c = db.rawQuery(query, null);
+        try{
+            while (c.moveToNext()) {
+                ThuChiModel thuChi = new ThuChiModel();
+                thuChi.setMaGiaoDich(c.getInt(0));
+                thuChi.setPhanLoaiThuChi(c.getInt(1));
+                thuChi.setTienGiaoDich(c.getInt(2));
+                thuChi.setNgayGiaoDich(c.getString(3));
+                thuChi.setGhiChu(c.getString(4));
+                thuChi.setMaDanhMuc(c.getInt(5));
+
+
+                gd.add(thuChi);
+            }
+        }catch (Exception e) {
+            // Xử lý ngoại lệ
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+
+        }
+        return gd;
+    }
+
 }

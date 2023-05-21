@@ -1,20 +1,16 @@
 package com.example.doanmonhoc;
 
-
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.doanmonhoc.sang.Phuong_BaoCao_Thang_Fragment;
 import com.example.doanmonhoc.sang.Phuong_Tk_TuyChon_Fragment;
 
-public class ViewPagerAdapter extends FragmentStatePagerAdapter {
-    public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
+public class ViewPagerAdapterBaoCao extends FragmentStatePagerAdapter {
+    public ViewPagerAdapterBaoCao(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
     }
 
@@ -23,23 +19,33 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return new FragmentTongQuan();
+                return new Phuong_BaoCao_Thang_Fragment();
             case 1:
-                return new FragmentTaiKhoan();
-            case 2:
-                return new FragmentAdd();
-            case 3:
-                return new FragmentBaoCao();
-            case 4:
-                return new FragmentKhac();
+                return new Phuong_Tk_TuyChon_Fragment();
+
             default:
                 return new FragmentTongQuan();
         }
 
     }
+
     @Override
     public int getCount() {
+        return 2;
+    }
 
-        return 5;
+    @Nullable
+    @Override
+    public CharSequence getPageTitle(int position) {
+        switch (position)
+        {
+            case 0:
+                return "THÁNG";
+            case 1:
+                return "TÙY CHỌN";
+            default:
+                return "THÁNG";
+        }
+
     }
 }
