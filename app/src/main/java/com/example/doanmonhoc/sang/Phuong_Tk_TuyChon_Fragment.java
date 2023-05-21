@@ -2,11 +2,6 @@ package com.example.doanmonhoc.sang;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
-
-import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +11,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 import com.example.doanmonhoc.DAO.ThuChiDAO;
 import com.example.doanmonhoc.R;
@@ -30,7 +29,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -165,7 +163,7 @@ public class Phuong_Tk_TuyChon_Fragment extends Fragment {
 
 
                 BarDataSet dataSet = new BarDataSet(entries, "Thu chi");
-                int[] colors = { ContextCompat.getColor(getContext(), R.color.purple_700), ContextCompat.getColor(getContext(), R.color.blue_cardview) };
+                int[] colors = { ContextCompat.getColor(getContext(), R.color.purple_700), ContextCompat.getColor(getContext(), R.color.Blue) };
                 dataSet.setColors(colors);
 
 

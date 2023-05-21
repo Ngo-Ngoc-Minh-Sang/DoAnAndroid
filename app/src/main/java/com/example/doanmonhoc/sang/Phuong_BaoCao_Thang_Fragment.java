@@ -1,46 +1,31 @@
 package com.example.doanmonhoc.sang;
 
-import android.app.AlertDialog;
-import android.app.DatePickerDialog;
-import android.content.res.Resources;
-import android.database.Cursor;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
-
-import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+
 import com.example.doanmonhoc.DAO.ThuChiDAO;
 import com.example.doanmonhoc.R;
-import com.example.doanmonhoc.model.ChartData;
 import com.example.doanmonhoc.model.ThuChiModel;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.formatter.LargeValueFormatter;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -171,7 +156,7 @@ public class Phuong_BaoCao_Thang_Fragment extends Fragment {
             BarDataSet dataSet = new BarDataSet(entries, "Thu chi");
 
 
-            int[] colors = { ContextCompat.getColor(getContext(), R.color.purple_700), ContextCompat.getColor(getContext(), R.color.blue_cardview) };
+            int[] colors = { ContextCompat.getColor(getContext(), R.color.purple_700), ContextCompat.getColor(getContext(), R.color.Blue) };
             dataSet.setColors(colors);
 
 
