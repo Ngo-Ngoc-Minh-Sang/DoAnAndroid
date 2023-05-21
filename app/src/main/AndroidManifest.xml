@@ -15,9 +15,9 @@
             android:name=".sang.Sang_MainActivity"
 
             android:exported="false" />
-        <activity
-            android:name=".sang.Phong_LichSuActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".sang.Phong_LichSuActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".LaiNganHang"
             android:exported="false" />
@@ -55,7 +55,7 @@
         <!-- </activity> -->
         <!-- CỦA SANG -->
         <activity
-            android:name=".sang.ThemDanhMuc"
+            android:name=".sang.Phong_LichSuActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
