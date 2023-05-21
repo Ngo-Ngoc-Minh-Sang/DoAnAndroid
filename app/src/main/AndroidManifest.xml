@@ -11,8 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoAnMonHoc"
         tools:targetApi="31">
+
+
         <activity
-            android:name=".Phong_LichSuActivity"
+            android:name=".sang.Phong_LichSuActivity"
             android:exported="false" />
         <activity
             android:name=".sang.Sang_MainActivity"
@@ -39,9 +41,6 @@
             android:name=".ThuNhapActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivityPhong"
-            android:exported="true" />
-        <activity
             android:name=".Manh_LoginActivity"
             android:exported="false" /> <!-- CỦA BÍCH PHƯỢNG -->
         <!-- <activity -->
@@ -54,7 +53,7 @@
         <!-- </activity> -->
         <!-- CỦA SANG -->
         <activity
-            android:name=".sang.Phong_LichSuActivity"
+            android:name=".MainActivityPhong"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

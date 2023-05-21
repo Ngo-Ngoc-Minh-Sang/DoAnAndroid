@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".sang.Phuong_Tk_TuyChon_Fragment">
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:id="@+id/edt_daystart"
+        android:hint="YYYY/MM/DD"
+        android:textSize="18dp"
+        android:layout_marginLeft="60dp"
+        >
+    </EditText>
+
+    <ImageView
+        android:id="@+id/img_daystart"
+        android:layout_width="62dp"
+        android:layout_height="41dp"
+        android:src="@drawable/baseline_calendar_month_24">
+
+    </ImageView>
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:id="@+id/edt_dayend"
+        android:hint="YYYY/MM/DD"
+        android:textSize="18dp"
+        android:layout_marginLeft="250dp"
+
+        >
+    </EditText>
+
+    <ImageView
+        android:id="@+id/img_dayend"
+        android:layout_width="62dp"
+        android:layout_height="41dp"
+        android:layout_marginLeft="190dp"
+        android:src="@drawable/baseline_calendar_month_24"
+
+        >
+
+    </ImageView>
+    <Button
+        android:id="@+id/btn_tk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/values"
+        android:text="THỐNG KÊ"
+
+        >
+
+    </Button>
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/chart_option"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginTop="200dp"
+        >
+
+    </com.github.mikephil.charting.charts.BarChart>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="550dp"
+        app:cardBackgroundColor="@color/blue_cardview"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="20dp"
+
+        >
+
+        <TextView
+            android:id="@+id/txt_tongthu_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_marginLeft="150dp"
+            android:textSize="20dp"
+            android:textColor="@color/blue">
+
+        </TextView>
+        <TextView
+            android:id="@+id/txt_tongchi_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="40dp"
+            android:textSize="20dp"
+            android:textColor="@color/red"
+            >
+
+        </TextView>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>
