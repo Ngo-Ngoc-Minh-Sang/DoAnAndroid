@@ -159,9 +159,7 @@ public class Phuong_Tk_TuyChon_Fragment extends Fragment {
                 int j = 0;
                 for (ThuChiModel t : transactions) {
                     float value = (float) t.getTienGiaoDich();
-                    if (t.getPhanLoaiThuChi()==2) {
-                        value = -value;
-                    }
+
                     entries.add(new BarEntry(j++, value));
                 }
 
