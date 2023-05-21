@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.doanmonhoc.SQLiteHelper;
+import com.example.doanmonhoc.model.DanhMucModel;
 import com.example.doanmonhoc.model.ThuChiModel;
 
 import java.text.SimpleDateFormat;
@@ -70,58 +71,89 @@ public class ThuChiDAO {
         c.close();
         return ls;
     }
-    public List<String> getGiaoDichToString(){
-        List<String> ls = new ArrayList<>();
-        // Tạo con trỏ để đọc dữ liệu
-        String query = "select MaGiaoDich, PhanLoaiThuChi, TienGiaoDich, NgayGiaoDich, GhiChu, MaDanhMuc from GiaoDich";
-        Cursor c = db.rawQuery(query,null);
-        c.moveToFirst(); // Đặt con trỏ ở bản ghi đầu tiên trong bảng
-        while(!c.isAfterLast()) //Nếu nó không phải dòng cuối cùng thì cứ tiếp tục đọc
-        {
-            ThuChiModel thuChi = new ThuChiModel();
-            thuChi.setMaGiaoDich(c.getInt(0));
-            thuChi.setPhanLoaiThuChi(c.getInt(1));
-            thuChi.setTienGiaoDich(c.getInt(2));
-            thuChi.setNgayGiaoDich(c.getString(3));
-            thuChi.setGhiChu(c.getString(4));
-            thuChi.setMaDanhMuc(c.getInt(5));
-
-
-            String strData = thuChi.getMaGiaoDich() + " - " + thuChi.getPhanLoaiThuChi() + " - " + thuChi.getTienGiaoDich()
-                    + " - " + thuChi.getNgayGiaoDich() + " - " + thuChi.getGhiChu() + " - " + thuChi.getMaDanhMuc();
-            ls.add(strData);
-            c.moveToNext();
-        }
-        c.close();
-        return ls;
-    }
 
     public List<String> getSelectDay(int year, int month, int day){
         List<String> ls = new ArrayList<>();
         // Tạo con trỏ để đọc dữ liệu
         String dateText = year + "-" + (month + 1) + "-" + day;
-        String query = "select * from GiaoDich where NgayGiaoDich = '" + dateText + "' ";
+        String query = "select PhanLoaiThuChi, TienGiaoDich, GhiChu, Icon from GiaoDich g, DanhMuc d where d.MaDanhMuc = g.MaDanhMuc and NgayGiaoDich = '" + dateText + "' ";
         Cursor c = db.rawQuery(query,null);
         c.moveToFirst(); // Đặt con trỏ ở bản ghi đầu tiên trong bảng
         while(!c.isAfterLast()) //Nếu nó không phải dòng cuối cùng thì cứ tiếp tục đọc
         {
             ThuChiModel thuChi = new ThuChiModel();
-            thuChi.setMaGiaoDich(c.getInt(0));
-            thuChi.setPhanLoaiThuChi(c.getInt(1));
-            thuChi.setTienGiaoDich(c.getInt(2));
-            thuChi.setNgayGiaoDich(c.getString(3));
-            thuChi.setGhiChu(c.getString(4));
-            thuChi.setMaDanhMuc(c.getInt(5));
+            DanhMucModel danhmuc = new DanhMucModel();
+            thuChi.setPhanLoaiThuChi(c.getInt(0));
+            thuChi.setTienGiaoDich(c.getInt(1));
+            thuChi.setGhiChu(c.getString(2));
+            danhmuc.setIcon(c.getString(3));
+            // Ghi chú, Tiền GD,
 
 
-            String strData = thuChi.getMaGiaoDich() + " - " + thuChi.getPhanLoaiThuChi() + " - " + thuChi.getTienGiaoDich()
-                    + " - " + thuChi.getNgayGiaoDich() + " - " + thuChi.getGhiChu() + " - " + thuChi.getMaDanhMuc();
+            String strData =  thuChi.getPhanLoaiThuChi() +" - "+danhmuc.getIcon()  + " - " + thuChi.getGhiChu()
+                    + " - " + thuChi.getTienGiaoDich()+"VNĐ";
+
             ls.add(strData);
             c.moveToNext();
         }
         c.close();
         return ls;
     }
+
+    public List<String> getSelectKhoanThu(){
+        List<String> ls = new ArrayList<>();
+        // Tạo con trỏ để đọc dữ liệu
+        String query = "select NgayGiaoDich , GhiChu,TienGiaoDich, Icon from GiaoDich g, DanhMuc d where d.MaDanhMuc = g.MaDanhMuc and PhanLoaiThuChi = 0";
+        Cursor c = db.rawQuery(query,null);
+        c.moveToFirst(); // Đặt con trỏ ở bản ghi đầu tiên trong bảng
+        while(!c.isAfterLast()) //Nếu nó không phải dòng cuối cùng thì cứ tiếp tục đọc
+        {
+            ThuChiModel thuChi = new ThuChiModel();
+            DanhMucModel danhmuc = new DanhMucModel();
+            thuChi.setNgayGiaoDich(c.getString(0));
+            thuChi.setGhiChu(c.getString(1));
+            thuChi.setTienGiaoDich(c.getInt(2));
+            danhmuc.setIcon(c.getString(3));
+            // Ghi chú, Tiền GD,
+
+
+            String strData =thuChi.getNgayGiaoDich() + " - "+danhmuc.getIcon()
+                    + " - " + thuChi.getGhiChu()+ " - " + thuChi.getTienGiaoDich()+" VNĐ";
+
+            ls.add(strData);
+            c.moveToNext();
+        }
+        c.close();
+        return ls;
+    }
+
+    public List<String> getSelectKhoanChi(){
+        List<String> ls = new ArrayList<>();
+        // Tạo con trỏ để đọc dữ liệu
+        String query = "select NgayGiaoDich , GhiChu,TienGiaoDich, Icon from GiaoDich g, DanhMuc d where d.MaDanhMuc = g.MaDanhMuc and PhanLoaiThuChi = 1";
+        Cursor c = db.rawQuery(query,null);
+        c.moveToFirst(); // Đặt con trỏ ở bản ghi đầu tiên trong bảng
+        while(!c.isAfterLast()) //Nếu nó không phải dòng cuối cùng thì cứ tiếp tục đọc
+        {
+            ThuChiModel thuChi = new ThuChiModel();
+            DanhMucModel danhmuc = new DanhMucModel();
+            thuChi.setNgayGiaoDich(c.getString(0));
+            thuChi.setGhiChu(c.getString(1));
+            thuChi.setTienGiaoDich(c.getInt(2));
+            danhmuc.setIcon(c.getString(3));
+            // Ghi chú, Tiền GD,
+
+
+            String strData =thuChi.getNgayGiaoDich() + " - "+danhmuc.getIcon()
+                    + " - " + thuChi.getGhiChu()+ " - " + thuChi.getTienGiaoDich() +" VNĐ";
+
+            ls.add(strData);
+            c.moveToNext();
+        }
+        c.close();
+        return ls;
+    }
+
 
     // Xóa dữ liệu
     public int deleteThuChi(String maGiaoDich){

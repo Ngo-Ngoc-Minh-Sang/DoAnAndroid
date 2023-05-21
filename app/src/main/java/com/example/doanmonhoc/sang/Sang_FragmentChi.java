@@ -125,6 +125,7 @@ public class Sang_FragmentChi extends Fragment {
                             drawableId = view.getContext().getApplicationContext().getResources().getIdentifier("custom_background_select_category6", "drawable", view.getContext().getApplicationContext().getPackageName());
                             drawable = view.getContext().getApplicationContext().getResources().getDrawable(drawableId);
                             animBtnCategory6.setBackground(drawable);
+
                             break;
                         default:
                             break;
@@ -155,4 +156,5 @@ public class Sang_FragmentChi extends Fragment {
         calendar.add(Calendar.DATE, -1);
         btnYesterday.setText(formatDay.format(calendar.getTime()) + "\n" + "Hôm qua");
     }
+
 }
