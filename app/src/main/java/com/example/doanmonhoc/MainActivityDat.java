@@ -22,7 +22,6 @@ public class MainActivityDat extends AppCompatActivity {
         btnbar=(Button)findViewById(R.id.btnbar);
         btndoitien=(Button)findViewById(R.id.btndoitien);
         btntienlai=(Button)findViewById(R.id.btntienlai);
-        btnLichSu=(Button)findViewById(R.id.btnLichSu);
 
         btnbar.setOnClickListener(new View.OnClickListener() {
             @Override
