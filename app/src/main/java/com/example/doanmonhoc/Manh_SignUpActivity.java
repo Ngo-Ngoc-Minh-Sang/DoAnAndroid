@@ -113,8 +113,13 @@ public class Manh_SignUpActivity extends AppCompatActivity {
                         NguoiDungModel ndm = new NguoiDungModel(0, nsinh, 0, hoten, sdt, linkImg, email, pass, gioitinh);
                         int kq = ngDung.insertNguoiDung(ndm);
                         if (kq == 1)
+                        {
                             Toast.makeText(Manh_SignUpActivity.this, "Đăng ký thành công!", Toast.LENGTH_LONG).show();
-                        if (kq == -1)
+                            Intent intent = new Intent(Manh_SignUpActivity.this, Manh_LoginActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                           if (kq == -1)
                             Toast.makeText(Manh_SignUpActivity.this, "Đăng ký thất bại!", Toast.LENGTH_LONG).show();
                     }
 //                    NguoiDungModel ngDungM = new NguoiDungModel(1, 2002, 200000, "Ngô Ngọc Minh Sang", "0946885098", "avatar.png", "ngos810@gmail.com", "sang123", "Nữ");
@@ -257,7 +262,6 @@ public class Manh_SignUpActivity extends AppCompatActivity {
             edtEmail.setError("Email không được để trống");
             return -1;
         }
-
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             edtEmail.setError("Email không hợp lệ");
             return -1;
@@ -273,7 +277,10 @@ public class Manh_SignUpActivity extends AppCompatActivity {
             edtMatkhau.setError("Mật khẩu không được quá 20 kí tự");
             return -1;
         }
-
+        if (password.length() < 8){
+            edtMatkhau.setError("Mật khẩu phải có ít nhất 8 kí tự");
+            return -1;
+        }
         if (!password.matches("^[a-zA-Z0-9]*$")) {
             edtMatkhau.setError("Mật khẩu chỉ được có chữ cái và số");
             return -1;

@@ -20,7 +20,7 @@ import com.example.doanmonhoc.R;
 import com.example.doanmonhoc.SQLiteHelper;
 import com.example.doanmonhoc.model.NguoiDungModel;
 
-public class Manh_LoginActivity extends AppCompatActivity {
+public class  Manh_LoginActivity extends AppCompatActivity {
     NguoiDungDAO nguoiDungDAO;
     NguoiDungModel nguoiDungModel;
     SQLiteHelper sqLiteHelper;
@@ -44,7 +44,12 @@ public class Manh_LoginActivity extends AppCompatActivity {
                     if (cw != -1) {
                         int login = nguoiDungDAO.checkNguoiDung(edtEmail.getText().toString(), edtPassword.getText().toString());
                         if (login == 1)
+                        {
                             Toast.makeText(Manh_LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(Manh_LoginActivity.this, MainActivityPhong.class);
+                            startActivity(intent);
+                            finish();
+                        }
                         else
                             Toast.makeText(Manh_LoginActivity.this, "Sai tài khoản hoặc mật khẩu", Toast.LENGTH_LONG).show();
                     }
