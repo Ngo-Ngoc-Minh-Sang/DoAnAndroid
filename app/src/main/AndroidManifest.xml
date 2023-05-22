@@ -14,7 +14,7 @@
 
 
         <activity
-            android:name=".sang.Sang_MainActivity"
+            android:name=".Manh_SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".sang.Phong_LichSuActivity"
@@ -43,7 +43,7 @@
             android:name=".bardemo"
             android:exported="false" />
         <activity
-            android:name=".Manh_SignUpActivity"
+            android:name=".MainActivityPhong"
             android:exported="false" />
         <activity
             android:name=".PTTaiChinhActivity"
@@ -58,7 +58,7 @@
             android:name=".sang.ThemDanhMuc"
             android:exported="true" />
         <activity
-            android:name=".Manh_LoginActivity"
+            android:name=".Manh_SignUpActivity"
             android:exported="false" /> <!-- CỦA BÍCH PHƯỢNG -->
         <!-- <activity -->
         <!-- android:name=".MainActivity2" -->
@@ -70,7 +70,7 @@
         <!-- </activity> -->
         <!-- CỦA SANG -->
         <activity
-            android:name=".MainActivityPhong"
+            android:name=".sang.Sang_MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
