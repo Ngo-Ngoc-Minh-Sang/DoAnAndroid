@@ -418,34 +418,34 @@
                         android:layout_marginBottom="65dp">
 
                         <ImageButton
-                            android:id="@+id/imageButton6"
+                            android:id="@+id/imgBtnNote1Chi"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="130dp"
                             android:layout_weight="1"
                             android:adjustViewBounds="true"
                             android:padding="20dp"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/doraemon" />
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/add" />
 
                         <ImageButton
-                            android:id="@+id/imageButton7"
+                            android:id="@+id/imgBtnNote2Chi"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="130dp"
                             android:layout_weight="1"
                             android:adjustViewBounds="true"
                             android:padding="20dp"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/doraemon" />
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/add" />
 
                         <ImageButton
-                            android:id="@+id/imageButton8"
+                            android:id="@+id/imgBtnNote3Chi"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="130dp"
                             android:layout_weight="1"
                             android:adjustViewBounds="true"
                             android:padding="20dp"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/doraemon" />
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/add" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -460,7 +460,7 @@
         android:layout_marginTop="10dp"
         android:paddingBottom="5dp">
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonThemChi"
             android:layout_width="200dp"
             android:layout_height="55dp"
             android:text="Thêm"

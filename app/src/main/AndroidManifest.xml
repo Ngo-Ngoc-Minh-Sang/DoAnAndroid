@@ -11,15 +11,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoAnMonHoc"
         tools:targetApi="31">
+
+
+        <activity
+            android:name=".sang.Sang_MainActivity"
+            android:exported="false" />
         <activity
             android:name=".sang.Phong_LichSuActivity"
             android:exported="false" />
+
+
 <!--        <activity-->
 <!--            android:name=".sang.Phong_LichSuActivity"-->
 <!--            android:exported="false" />-->
+
+=======
         <!--        <activity-->
         <!--            android:name=".sang.Phong_LichSuActivity"-->
         <!--            android:exported="false" />-->
+=======
 <!--        <activity-->
 <!--            android:name=".sang.Phong_LichSuActivity"-->
 <!--            android:exported="false" />-->
@@ -45,11 +55,11 @@
             android:name=".ThuNhapActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivityPhong"
+            android:name=".sang.ThemDanhMuc"
             android:exported="true" />
-<!--        <activity-->
-<!--            android:name=".Manh_LoginActivity"-->
-<!--            android:exported="false" /> &lt;!&ndash; CỦA BÍCH PHƯỢNG &ndash;&gt;-->
+        <activity
+            android:name=".Manh_LoginActivity"
+            android:exported="false" /> <!-- CỦA BÍCH PHƯỢNG -->
         <!-- <activity -->
         <!-- android:name=".MainActivity2" -->
         <!-- android:exported="true"> -->
@@ -60,7 +70,7 @@
         <!-- </activity> -->
         <!-- CỦA SANG -->
         <activity
-            android:name=".Manh_LoginActivity"
+            android:name=".MainActivityPhong"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

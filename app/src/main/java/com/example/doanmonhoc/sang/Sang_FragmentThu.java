@@ -1,12 +1,20 @@
 package com.example.doanmonhoc.sang;
 
+import static android.app.Activity.RESULT_OK;
+
+import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
@@ -15,6 +23,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.doanmonhoc.R;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -24,6 +33,11 @@ public class Sang_FragmentThu extends Fragment {
     Button btnToday, btnYesterday, btnCustomDay;
     ImageButton btnCategory1, btnCategory2, btnCategory3, btnCategory4, btnCategory5, btnCategory6;
     ImageButton[] imageButtons;
+    private static final int PICK_IMAGE_REQUEST = 1;
+    private ImageButton imgBtnNote1Thu, imgBtnNote2Thu, imgBtnNote3Thu;
+    private Uri mImageUri;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -33,6 +47,33 @@ public class Sang_FragmentThu extends Fragment {
         checkButtonCLicked(view);
         setTextBtnDay();
         animationBtnDay(view);
+        imgBtnNote1Thu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
+            }
+        });
+        imgBtnNote2Thu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), 2);
+            }
+        });
+        imgBtnNote3Thu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), 3);
+            }
+        });
         return view;
     }
     private void addControls(View view){
@@ -51,6 +92,9 @@ public class Sang_FragmentThu extends Fragment {
         btnCategory4 = (ImageButton) view.findViewById(R.id.btnCategory4);
         btnCategory5 = (ImageButton) view.findViewById(R.id.btnCategory5);
         btnCategory6 = (ImageButton) view.findViewById(R.id.btnCategory6);
+        imgBtnNote1Thu = (ImageButton) view.findViewById(R.id.imgBtnNote1Thu);
+        imgBtnNote2Thu = (ImageButton) view.findViewById(R.id.imgBtnNote2Thu);
+        imgBtnNote3Thu = (ImageButton) view.findViewById(R.id.imgBtnNote3Thu);
     }
     private void animationBtnDay(View viewParent){
 
@@ -71,8 +115,18 @@ public class Sang_FragmentThu extends Fragment {
         btnCustomDay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Calendar calendar = Calendar.getInstance();
                 setBackgroundNoneForButtonDate();
                 btnCustomDay.setBackground(ContextCompat.getDrawable(viewParent.findViewById(R.id.btnToday2).getContext(), R.drawable.custom_background_buttondate));
+                DatePickerDialog datePickerDialog = new DatePickerDialog(view.getContext(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        String day_month = dayOfMonth+ "/" + (month + 1);
+                        btnCustomDay.setText(day_month + "\n" + "Tùy chọn");
+                    }
+                }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+
+                datePickerDialog.show();
             }
         });
     }
@@ -125,6 +179,9 @@ public class Sang_FragmentThu extends Fragment {
                             drawableId = view.getContext().getApplicationContext().getResources().getIdentifier("custom_background_select_category6", "drawable", view.getContext().getApplicationContext().getPackageName());
                             drawable = view.getContext().getApplicationContext().getResources().getDrawable(drawableId);
                             animBtnCategory6.setBackground(drawable);
+                            Intent it = new Intent();
+                            it.setClass(view.getContext(), ThemDanhMuc.class);
+                            startActivity(it);
                             break;
                         default:
                             break;
@@ -154,5 +211,28 @@ public class Sang_FragmentThu extends Fragment {
         btnToday.setText(formatDay.format(calendar.getTime()) + "\n" + "Hôm nay");
         calendar.add(Calendar.DATE, -1);
         btnYesterday.setText(formatDay.format(calendar.getTime()) + "\n" + "Hôm qua");
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && data != null) {
+            Uri selectedImage = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(Sang_FragmentThu.this.getContext().getContentResolver(), selectedImage);
+                switch (requestCode) {
+                    case 1:
+                        imgBtnNote1Thu.setImageBitmap(bitmap);
+                        break;
+                    case 2:
+                        imgBtnNote2Thu.setImageBitmap(bitmap);
+                        break;
+                    case 3:
+                        imgBtnNote3Thu.setImageBitmap(bitmap);
+                        break;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

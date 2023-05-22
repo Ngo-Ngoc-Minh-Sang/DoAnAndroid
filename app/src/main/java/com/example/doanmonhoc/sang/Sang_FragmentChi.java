@@ -1,12 +1,21 @@
 package com.example.doanmonhoc.sang;
 
+import static android.app.Activity.RESULT_OK;
+
+import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
@@ -14,15 +23,21 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.doanmonhoc.R;
+import com.example.doanmonhoc.model.ThuChiModel;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Sang_FragmentChi extends Fragment {
     FrameLayout animBtnCategory1, animBtnCategory2, animBtnCategory3, animBtnCategory4, animBtnCategory5, animBtnCategory6;
-    Button btnToday, btnYesterday, btnCustomDay;
+    Button btnToday, btnYesterday, btnCustomDay, buttonThemChi;
     ImageButton btnCategory1, btnCategory2, btnCategory3, btnCategory4, btnCategory5, btnCategory6;
     ImageButton[] imageButtons;
+    EditText edtEnterMoney;
+    private static final int PICK_IMAGE_REQUEST = 1;
+    private ImageButton imgBtnNote1Chi, imgBtnNote2Chi, imgBtnNote3Chi;
+    private Uri mImageUri;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -32,6 +47,41 @@ public class Sang_FragmentChi extends Fragment {
         checkButtonCLicked(view);
         setTextBtnDay();
         animationBtnDay(view);
+        imgBtnNote1Chi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
+            }
+        });
+        imgBtnNote2Chi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), 2);
+            }
+        });
+        imgBtnNote3Chi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), 3);
+            }
+        });
+        buttonThemChi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int phanLoai = 1;
+                int tienGiaoDich = Integer.valueOf(edtEnterMoney.getText().toString());
+                ThuChiModel thuChi = new ThuChiModel(1, 2, 2000, 3, 4, "2023-05-19", "Mua sữa chua" );
+            }
+        });
         return view;
     }
     private void addControls(View view){
@@ -50,6 +100,11 @@ public class Sang_FragmentChi extends Fragment {
         btnCategory4 = (ImageButton) view.findViewById(R.id.btnCategory4);
         btnCategory5 = (ImageButton) view.findViewById(R.id.btnCategory5);
         btnCategory6 = (ImageButton) view.findViewById(R.id.btnCategory6);
+        imgBtnNote1Chi = (ImageButton) view.findViewById(R.id.imgBtnNote1Chi);
+        imgBtnNote2Chi = (ImageButton) view.findViewById(R.id.imgBtnNote2Chi);
+        imgBtnNote3Chi = (ImageButton) view.findViewById(R.id.imgBtnNote3Chi);
+        buttonThemChi = (Button) view.findViewById(R.id.buttonThemChi);
+        edtEnterMoney = (EditText) view.findViewById(R.id.edtEnterMoney);
     }
     private void animationBtnDay(View viewParent){
 
@@ -70,9 +125,18 @@ public class Sang_FragmentChi extends Fragment {
         btnCustomDay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Calendar calendar = Calendar.getInstance();
                 setBackgroundNoneForButtonDate();
                 btnCustomDay.setBackground(ContextCompat.getDrawable(viewParent.findViewById(R.id.btnToday).getContext(), R.drawable.custom_background_buttondate));
+                DatePickerDialog datePickerDialog = new DatePickerDialog(view.getContext(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        String day_month = dayOfMonth+ "/" + (month + 1);
+                        btnCustomDay.setText(day_month + "\n" + "Tùy chọn");
+                    }
+                }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
 
+                datePickerDialog.show();
             }
         });
     }
@@ -125,7 +189,9 @@ public class Sang_FragmentChi extends Fragment {
                             drawableId = view.getContext().getApplicationContext().getResources().getIdentifier("custom_background_select_category6", "drawable", view.getContext().getApplicationContext().getPackageName());
                             drawable = view.getContext().getApplicationContext().getResources().getDrawable(drawableId);
                             animBtnCategory6.setBackground(drawable);
-
+                            Intent it = new Intent();
+                            it.setClass(view.getContext(), ThemDanhMuc.class);
+                            startActivity(it);
                             break;
                         default:
                             break;
@@ -156,5 +222,27 @@ public class Sang_FragmentChi extends Fragment {
         calendar.add(Calendar.DATE, -1);
         btnYesterday.setText(formatDay.format(calendar.getTime()) + "\n" + "Hôm qua");
     }
-
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && data != null) {
+            Uri selectedImage = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(Sang_FragmentChi.this.getContext().getContentResolver(), selectedImage);
+                switch (requestCode) {
+                    case 1:
+                        imgBtnNote1Chi.setImageBitmap(bitmap);
+                        break;
+                    case 2:
+                        imgBtnNote2Chi.setImageBitmap(bitmap);
+                        break;
+                    case 3:
+                        imgBtnNote3Chi.setImageBitmap(bitmap);
+                        break;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
