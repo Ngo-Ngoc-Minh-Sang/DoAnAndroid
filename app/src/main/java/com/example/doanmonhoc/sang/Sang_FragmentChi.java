@@ -18,10 +18,12 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.doanmonhoc.DAO.ThuChiDAO;
 import com.example.doanmonhoc.R;
 import com.example.doanmonhoc.model.ThuChiModel;
 
@@ -34,7 +36,9 @@ public class Sang_FragmentChi extends Fragment {
     Button btnToday, btnYesterday, btnCustomDay, buttonThemChi;
     ImageButton btnCategory1, btnCategory2, btnCategory3, btnCategory4, btnCategory5, btnCategory6;
     ImageButton[] imageButtons;
-    EditText edtEnterMoney;
+    EditText edtEnterMoney, edtGhiChuChi;
+    String ngayDuocChon;
+    ThuChiDAO thuChiDAO;
     private static final int PICK_IMAGE_REQUEST = 1;
     private ImageButton imgBtnNote1Chi, imgBtnNote2Chi, imgBtnNote3Chi;
     private Uri mImageUri;
@@ -42,6 +46,8 @@ public class Sang_FragmentChi extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chi, container, false);
+
+        thuChiDAO = new ThuChiDAO(view.getContext());
         addControls(view);
         imageButtons = initializeButtons(view,6);
         checkButtonCLicked(view);
@@ -79,7 +85,14 @@ public class Sang_FragmentChi extends Fragment {
             public void onClick(View view) {
                 int phanLoai = 1;
                 int tienGiaoDich = Integer.valueOf(edtEnterMoney.getText().toString());
-                ThuChiModel thuChi = new ThuChiModel(1, 2, 2000, 3, 4, "2023-05-19", "Mua sữa chua" );
+                String date = ngayDuocChon;
+                String ghiChu = edtGhiChuChi.getText().toString();
+                ThuChiModel thuChi = new ThuChiModel(1, phanLoai, tienGiaoDich, 1, 1, "22-6-2023", ghiChu );
+                int kq = thuChiDAO.insertThuChi(thuChi);
+                if(kq == 1)
+                    Toast.makeText(Sang_FragmentChi.this.getContext(), "Thành công", Toast.LENGTH_LONG).show();
+                else
+                    Toast.makeText(Sang_FragmentChi.this.getContext(), "Thất bại", Toast.LENGTH_LONG).show();
             }
         });
         return view;
@@ -105,6 +118,7 @@ public class Sang_FragmentChi extends Fragment {
         imgBtnNote3Chi = (ImageButton) view.findViewById(R.id.imgBtnNote3Chi);
         buttonThemChi = (Button) view.findViewById(R.id.buttonThemChi);
         edtEnterMoney = (EditText) view.findViewById(R.id.edtEnterMoney);
+        edtGhiChuChi = (EditText) view.findViewById(R.id.edtGhiChuChi);
     }
     private void animationBtnDay(View viewParent){
 
@@ -113,6 +127,7 @@ public class Sang_FragmentChi extends Fragment {
             public void onClick(View view) {
                 setBackgroundNoneForButtonDate();
                 btnToday.setBackground(ContextCompat.getDrawable(viewParent.findViewById(R.id.btnToday).getContext(), R.drawable.custom_background_buttondate));
+                ngayDuocChon = btnToday.getText() + "-2023";
             }
         });
         btnYesterday.setOnClickListener(new View.OnClickListener() {
@@ -120,6 +135,7 @@ public class Sang_FragmentChi extends Fragment {
             public void onClick(View view) {
                 setBackgroundNoneForButtonDate();
                 btnYesterday.setBackground(ContextCompat.getDrawable(viewParent.findViewById(R.id.btnToday).getContext(), R.drawable.custom_background_buttondate));
+                ngayDuocChon = btnYesterday.getText() + "-2023";
             }
         });
         btnCustomDay.setOnClickListener(new View.OnClickListener() {
@@ -131,12 +147,14 @@ public class Sang_FragmentChi extends Fragment {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(view.getContext(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        String day_month = dayOfMonth+ "/" + (month + 1);
-                        btnCustomDay.setText(day_month + "\n" + "Tùy chọn");
+                        String day_month = dayOfMonth+ "-" + (month + 1);
+                        btnCustomDay.setText(day_month);
+                        ngayDuocChon = btnCustomDay.getText() + "-2023";
                     }
                 }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
 
                 datePickerDialog.show();
+
             }
         });
     }
@@ -217,10 +235,10 @@ public class Sang_FragmentChi extends Fragment {
     }
     private void setTextBtnDay(){
         Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat formatDay = new SimpleDateFormat("dd/MM"); //format: 21/06/2002
-        btnToday.setText(formatDay.format(calendar.getTime()) + "\n" + "Hôm nay");
+        SimpleDateFormat formatDay = new SimpleDateFormat("dd-MM"); //format: 21/06/2002
+        btnToday.setText(formatDay.format(calendar.getTime()));
         calendar.add(Calendar.DATE, -1);
-        btnYesterday.setText(formatDay.format(calendar.getTime()) + "\n" + "Hôm qua");
+        btnYesterday.setText(formatDay.format(calendar.getTime()));
     }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
