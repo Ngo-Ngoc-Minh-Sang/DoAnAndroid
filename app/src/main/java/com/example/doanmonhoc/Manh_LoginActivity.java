@@ -45,8 +45,10 @@ public class  Manh_LoginActivity extends AppCompatActivity {
                         int login = nguoiDungDAO.checkNguoiDung(edtEmail.getText().toString(), edtPassword.getText().toString());
                         if (login == 1)
                         {
+                            String message = edtEmail.getText().toString();
                             Toast.makeText(Manh_LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(Manh_LoginActivity.this, MainActivityPhong.class);
+                            intent.putExtra("MESSAGE_KEY", message);
                             startActivity(intent);
                             finish();
                         }

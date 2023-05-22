@@ -6,17 +6,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.doanmonhoc.SQLiteHelper;
-import com.example.doanmonhoc.model.DanhMucModel;
 import com.example.doanmonhoc.model.ThuChiModel;
-import com.example.doanmonhoc.phong.Phong_AdapterData;
 import com.example.doanmonhoc.phong.Phong_ItemData;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class ThuChiDAO {
     private SQLiteDatabase db;
@@ -33,7 +27,7 @@ public class ThuChiDAO {
     public int insertThuChi(ThuChiModel thuChi){
         ContentValues values = new ContentValues(); // Tạo đối tượng chứa dữ liệu
         // Đưa dữ liệu vào đối tượng chứa
-        values.put("MaGiaoDich", thuChi.getMaGiaoDich());
+        //values.put("MaGiaoDich", thuChi.getMaGiaoDich());
         values.put("PhanLoaiThuChi", thuChi.getPhanLoaiThuChi());
         values.put("TienGiaoDich", thuChi.getTienGiaoDich());
         values.put("NgayGiaoDich", thuChi.getNgayGiaoDich());
@@ -138,7 +132,6 @@ public class ThuChiDAO {
             thuChi.setGhiChu(c.getString(1));
             thuChi.setTienGiaoDich(c.getInt(2));
 
-
             String strData ="Ngày: "+ thuChi.getNgayGiaoDich()+ "  Ghi chú: " + thuChi.getGhiChu()+ "  Tiền: " + thuChi.getTienGiaoDich()+" VNĐ";
 
             ls.add(strData);
@@ -215,7 +208,6 @@ public class ThuChiDAO {
             thuChi.setNgayGiaoDich(c.getString(3));
             thuChi.setGhiChu(c.getString(4));
             thuChi.setMaDanhMuc(c.getInt(5));
-
 
             transactions.add(thuChi);
         }
