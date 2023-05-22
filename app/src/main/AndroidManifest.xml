@@ -58,7 +58,7 @@
             android:name=".sang.ThemDanhMuc"
             android:exported="true" />
         <activity
-            android:name=".Manh_LoginActivity"
+            android:name=".MainActivityPhong"
             android:exported="false" /> <!-- CỦA BÍCH PHƯỢNG -->
         <!-- <activity -->
         <!-- android:name=".MainActivity2" -->
@@ -70,7 +70,7 @@
         <!-- </activity> -->
         <!-- CỦA SANG -->
         <activity
-            android:name=".MainActivityPhong"
+            android:name=".Manh_LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
