@@ -15,13 +15,15 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivityPhong extends AppCompatActivity {
     BottomNavigationView bottomNav;
+    String message;
     ViewPager view_Pager;
     Button btnPTThuNhap, btnPTChiTieu, btnPTTaiChinh, btnTaiChinh;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_phong);
-
+        Intent intent = getIntent();
+        message = intent.getStringExtra("MESSAGE_KEY");
         bottomNav = findViewById(R.id.bottom_nav);
         view_Pager = findViewById(R.id.view_pager);
         setUpViewPager();
@@ -46,7 +48,10 @@ public class MainActivityPhong extends AppCompatActivity {
                             view_Pager.setCurrentItem(3);
                             break;
                         case R.id.menu_Khac:
-                            view_Pager.setCurrentItem(4);
+                            Intent np = new Intent();
+                            np.setClass(MainActivityPhong.this, MainActivityThongTin.class);
+                            startActivity(np);
+                            //view_Pager.setCurrentItem(4);
                             break;
                     }
                     return true;

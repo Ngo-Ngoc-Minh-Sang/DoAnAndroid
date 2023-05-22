@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#D4FAEB"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:navigationIcon="@drawable/baseline_arrow_back_25"
+        app:title="Tạo lời nhắc"
+        app:titleTextColor="@color/white"
+        android:background="@drawable/bg_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:paddingTop="15dp"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="Tên lời nhắc"
+            android:textColor="#9A9999"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/name"
+            android:hint="Tên"
+            android:textColor="#47B87E"
+            android:textColorHint="#B37E7E7E"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="Tần suất nhắc nhở"
+            android:textColor="#9A9999"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/remind"
+            android:text="Một lần"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#47B87E"
+            android:textColorHint="#B37E7E7E"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="Ngày"
+            android:layout_marginTop="20dp"
+            android:textColor="#9A9999"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/date"
+            android:text="20 tháng 3, 2023"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#47B87E"
+            android:textColorHint="#B37E7E7E"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="Giờ"
+            android:layout_marginTop="20dp"
+            android:textColor="#9A9999"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/time"
+            android:text="11 : 08"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#47B87E"
+            android:textColorHint="#B37E7E7E"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:paddingTop="15dp"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="Ghi chú"
+            android:textColor="#9A9999"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/note"
+            android:hint="Ghi chú"
+            android:textColor="#47B87E"
+            android:textColorHint="#B37E7E7E"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:text="Tạo"
+            android:background="@drawable/bg_button"
+            android:textColor="#A8A3A3"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="5dp"
+            android:textAllCaps="false"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>

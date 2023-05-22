@@ -138,7 +138,6 @@ public class ThuChiDAO {
             thuChi.setGhiChu(c.getString(1));
             thuChi.setTienGiaoDich(c.getInt(2));
 
-
             String strData ="Ngày: "+ thuChi.getNgayGiaoDich()+ "  Ghi chú: " + thuChi.getGhiChu()+ "  Tiền: " + thuChi.getTienGiaoDich()+" VNĐ";
 
             ls.add(strData);
@@ -215,7 +214,6 @@ public class ThuChiDAO {
             thuChi.setNgayGiaoDich(c.getString(3));
             thuChi.setGhiChu(c.getString(4));
             thuChi.setMaDanhMuc(c.getInt(5));
-
 
             transactions.add(thuChi);
         }

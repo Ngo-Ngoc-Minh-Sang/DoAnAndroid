@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Other">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBarOther"
+        app:navigationIcon="@drawable/baseline_arrow_back_24"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_gravity="end"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/baseline_qr_code_24"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/avatar"
+            android:layout_marginTop="10dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/user"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:text=""
+            android:id="@+id/txt_name"
+            android:textSize="22dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btn_sua"
+            android:text="Sửa"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+
+        android:layout_height="match_parent"
+        android:background="#D4FAEB">
+
+        <FrameLayout
+            android:layout_marginTop="20dp"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:background="@drawable/baseline_navigate_next_24"
+                android:layout_width="20dp"
+                android:textSize="20dp"
+                android:layout_gravity="center|right"
+                android:layout_height="20dp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:textSize="20dp"
+                android:background="#00FF2200"
+                android:paddingVertical="10dp"
+                android:paddingLeft="10dp"
+                android:text="Liên kết tài khoản"
+                android:textAllCaps="false"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:background="@drawable/baseline_navigate_next_24"
+                android:layout_width="20dp"
+                android:textSize="20dp"
+                android:layout_gravity="center|right"
+                android:layout_height="20dp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/doimk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:textSize="20dp"
+                android:background="#00FF2200"
+                android:paddingVertical="10dp"
+                android:paddingLeft="10dp"
+                android:text="Đổi mật khẩu"
+                android:textAllCaps="false"/>
+        </FrameLayout>
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:textSize="20dp"
+            android:background="@color/white"
+            android:paddingVertical="10dp"
+            android:paddingLeft="10dp"
+            android:text="Đăng xuất"
+            android:textColor="#f20"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+</LinearLayout>

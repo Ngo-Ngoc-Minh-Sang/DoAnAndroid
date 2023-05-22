@@ -51,6 +51,19 @@ public class NguoiDungDAO {
             return -1;
         }
     }
+    public int getId(String email){
+        NguoiDungModel ngDung = new NguoiDungModel();
+        String s = "Select manguoidung from nguoidung where email = '" + email + "'";
+        Cursor c = db.rawQuery(s,null);
+        //query("NguoiDung", null, "email = ?, matkhau = ?", new String[] { (email), (password)}, null, null, null);
+        int kq = c.getCount();
+        c.close();
+        if (kq == 1){
+            return 1;
+        } else {
+            return -1;
+        }
+    }
     public List<String> getALlNguoiDungToString(){
         List<String> ls = new ArrayList<>();
         // Tạo con trỏ để đọc dữ liệu
